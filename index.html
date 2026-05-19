@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#F97316"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 <title>AlphaAnalytics | Data Driven Solutions</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
@@ -302,6 +306,138 @@ footer{background:#181410;color:#E5E7EB;padding:64px 4% 0;}
 .ft-brand-text .ft-logo-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
 .ft-brand-text .ft-logo-name span{color:var(--orange);}
 .ft-brand-text .ft-logo-tag{font-size:9.5px;font-weight:700;color:rgba(254, 252, 251, 0.815);letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;}
+
+/* MOB NAV */
+.mob-nav{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:20px;}
+.mob-nav.open{display:flex;}
+.mob-nav a{font-size:20px;font-weight:700;color:var(--dark);text-decoration:none;padding:8px 0;min-height:44px;display:flex;align-items:center;}
+.mob-nav a:hover{color:var(--orange);}
+.mob-close{position:absolute;top:20px;right:16px;font-size:26px;color:var(--dark);cursor:pointer;background:none;border:none;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;}
+
+/* ── CROSS-PLATFORM MOBILE OPTIMIZATION ── */
+/* iOS safe area support */
+@supports(padding:max(0px)){
+  nav{padding-left:max(4%,env(safe-area-inset-left));padding-right:max(4%,env(safe-area-inset-right));}
+  body{padding-bottom:env(safe-area-inset-bottom);}
+}
+/* Windows font rendering */
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+/* Prevent iOS text size adjust */
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+/* Remove iOS input shadows */
+input,textarea,select{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+/* Touch targets min 44px for iOS/Android */
+a,button,.hamburger{min-height:44px;display:inline-flex;align-items:center;}
+nav a,nav button{min-height:44px;}
+/* Prevent 300ms tap delay on mobile */
+a,button{touch-action:manipulation;}
+/* Smooth scrolling on iOS */
+html{-webkit-overflow-scrolling:touch;}
+
+/* ── TABLET (1024px) ── */
+@media(max-width:1024px){
+  .hero-grid{gap:36px;}
+  .srv-grid{grid-template-columns:repeat(2,1fr);}
+  .ind-grid{grid-template-columns:repeat(2,1fr);}
+  .cs-grid{grid-template-columns:repeat(2,1fr);}
+  .rv-grid{grid-template-columns:repeat(2,1fr);}
+  .bg-grid{grid-template-columns:repeat(2,1fr);}
+  .ab-grid{gap:40px;}
+  .ct-wrap{gap:36px;}
+  .jobs-g{grid-template-columns:1fr;}
+  .cta-ban{padding:40px 32px;}
+}
+
+/* ── MOBILE (768px) ── */
+@media(max-width:768px){
+  /* Nav */
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .btn-careers-nav{display:none;}
+  nav{padding:0 16px;height:60px;}
+  .logo-img-wrap{height:38px;width:95px;}
+  .logo-img-wrap img{height:38px;width:95px;}
+  .btn-contact-nav{padding:8px 13px;font-size:12px;}
+
+  /* Hero */
+  #home{padding:80px 16px 48px;min-height:auto;}
+  .hero-grid{grid-template-columns:1fr;gap:32px;}
+  h1{font-size:clamp(32px,9vw,48px);letter-spacing:-1.5px;}
+  .hero-desc{font-size:14px;max-width:100%;}
+  .hero-btns{gap:10px;}
+  .btn-pri,.btn-out{padding:13px 20px;font-size:13px;width:100%;justify-content:center;}
+  .hero-cards{grid-template-columns:1fr 1fr;gap:12px;}
+  .hcard{padding:20px 16px;}
+  .hcard-num{font-size:28px;}
+
+  /* Sections */
+  section{padding:56px 16px;}
+  .stitle{font-size:clamp(22px,7vw,34px);}
+  .sdesc{font-size:14px;}
+
+  /* Services */
+  .srv-grid{grid-template-columns:1fr;}
+
+  /* About */
+  .ab-grid{grid-template-columns:1fr;gap:24px;}
+  .ab-vals{grid-template-columns:1fr;}
+  .ab-b1{top:-10px;left:-10px;}
+  .ab-b2{bottom:-10px;right:-10px;}
+
+  /* Industries */
+  .ind-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .ic{padding:18px 14px;}
+
+  /* Case Studies */
+  .cs-grid{grid-template-columns:1fr;}
+  .cs-mt{flex-wrap:wrap;gap:10px;}
+
+  /* Reviews */
+  .rv-grid{grid-template-columns:1fr;}
+
+  /* Insights */
+  .bg-grid{grid-template-columns:1fr;}
+
+  /* Contact */
+  .ct-wrap{grid-template-columns:1fr;}
+  .fr{grid-template-columns:1fr;}
+  .ct-form{padding:22px 16px;}
+
+  /* Careers section */
+  .jobs-g{grid-template-columns:1fr;}
+  .jc{flex-direction:column;align-items:flex-start;gap:10px;}
+
+  /* CTA banner */
+  .cta-ban{flex-direction:column;text-align:center;padding:28px 16px;margin:0 16px 60px;}
+  .cta-ban h3{font-size:22px;}
+  .btn-wh{width:100%;justify-content:center;}
+
+  /* Clients marquee */
+  .mq-track{gap:36px;}
+  #clients{padding:24px 16px;}
+
+  /* Footer */
+  .ft-grid{grid-template-columns:1fr;}
+  .ft-bot{flex-direction:column;gap:8px;text-align:center;}
+  .ft-bot-links{gap:12px;flex-wrap:wrap;justify-content:center;}
+  footer{padding:40px 16px 0;}
+
+  /* Careers join box */
+  #careers .ctr > div{padding:32px 20px!important;flex-direction:column!important;}
+}
+
+/* ── SMALL MOBILE (480px) ── */
+@media(max-width:480px){
+  h1{font-size:30px;}
+  .hero-cards{grid-template-columns:1fr 1fr;gap:10px;}
+  .hcard{padding:16px 12px;}
+  .hcard-num{font-size:24px;}
+  .hcard-lbl{font-size:11px;}
+  .ind-grid{grid-template-columns:1fr 1fr;}
+  .hero-trust{flex-direction:column;align-items:flex-start;gap:8px;}
+  .cta-ban{margin:0 12px 48px;}
+  .fg input,.fg textarea,.fg select{font-size:16px;} /* prevent iOS zoom */
+}
 </style>
 </head>
 <body>
