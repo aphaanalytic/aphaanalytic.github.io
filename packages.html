@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#F97316"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 <title>Packages & Pricing | AlphaAnalytics</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
@@ -184,21 +188,82 @@ footer{background:#181410;color:#E5E7EB;padding:64px 4% 0;}
 .ft-bot a:hover{color:var(--orange);}
 .ft-bot-links{display:flex;gap:18px;}
 
-/* ── RESPONSIVE ── */
+/* ── CROSS-PLATFORM MOBILE OPTIMIZATION ── */
+/* iOS safe area */
+@supports(padding:max(0px)){
+  nav{padding-left:max(4%,env(safe-area-inset-left));padding-right:max(4%,env(safe-area-inset-right));}
+  body{padding-bottom:env(safe-area-inset-bottom);}
+}
+/* Windows font rendering */
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+input,textarea,select{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+a,button{touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center;}
+html{-webkit-overflow-scrolling:touch;}
+
 @media(max-width:1024px){
   .plans-grid{grid-template-columns:1fr 1fr;}
   .plat-card{grid-template-columns:1fr;gap:36px;padding:36px;}
   .plat-features{grid-template-columns:1fr;}
   .ft-grid{grid-template-columns:1fr 1fr;}
   .compare-table{font-size:12px;}
+  .cta-ban{padding:40px 32px;}
+  .btn-careers-nav{display:none;}
 }
 @media(max-width:768px){
-  nav{gap:10px;}.nav-links{display:none;}.hamburger{display:flex;}
+  nav{padding:0 16px;height:60px;gap:10px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .btn-careers-nav{display:none;}
+  .logo-img-wrap{height:38px;width:95px;}
+  .logo-img-wrap img{height:38px;width:95px;}
+  .btn-contact-nav{padding:8px 13px;font-size:12px;}
+
+  .pkg-hero{padding:90px 16px 52px;}
+  .ph-title{font-size:clamp(28px,9vw,48px);letter-spacing:-1px;}
+  .ph-desc{font-size:14px;}
+  .ph-toggle{flex-direction:row;}
+
+  #plans{padding:56px 16px;}
   .plans-grid{grid-template-columns:1fr;}
-  .cta-ban{flex-direction:column;text-align:center;padding:36px 22px;}
+  .plan-card{padding:28px 22px;}
+
+  #platinum{padding:0 16px 56px;}
+  .plat-card{padding:28px 20px;}
+  .plat-card h3{font-size:26px;}
+  .plat-features{grid-template-columns:1fr;}
+
+  #compare{padding:56px 16px;}
+  .compare-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:12px;}
+  .compare-table th,.compare-table td{padding:10px 12px;white-space:nowrap;}
+
+  #faq{padding:56px 16px;}
+  .faq-q{font-size:14px;padding:14px 16px;}
+  .faq-a{padding:0 16px 14px;}
+
+  .trust-inner{gap:16px;flex-wrap:wrap;}
+  .trust-item{font-size:12px;}
+
+  .cta-ban{flex-direction:column;text-align:center;padding:28px 16px;margin:0 16px 56px;}
+  .cta-ban h3{font-size:22px;}
+  .btn-wh{width:100%;justify-content:center;}
+
   .ft-grid{grid-template-columns:1fr;}
-  .trust-inner{gap:24px;}
-  .compare-table{display:block;overflow-x:auto;}
+  .ft-bot{flex-direction:column;gap:8px;text-align:center;}
+  .ft-bot-links{gap:12px;flex-wrap:wrap;justify-content:center;}
+  footer{padding:40px 16px 0;}
+  .stitle{font-size:clamp(22px,7vw,34px);}
+  .sdesc{font-size:14px;}
+  section{padding:56px 16px;}
+}
+@media(max-width:480px){
+  .pkg-hero{padding:80px 12px 44px;}
+  .plan-card{padding:22px 16px;}
+  .plan-price .amount{font-size:32px;}
+  .plat-card{padding:22px 14px;}
+  .btn-pri,.btn-out,.plat-btn{width:100%;justify-content:center;}
+  .fg input,.fg textarea,.fg select{font-size:16px;}
+  .cta-ban{margin:0 12px 48px;}
 }
 </style>
 </head>
