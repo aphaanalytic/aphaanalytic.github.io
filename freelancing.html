@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#F97316"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<title>Freelancing Platforms | AlphaAnalytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --orange:#F97316;--orange-light:#FED7AA;--orange-bg:#FFF7ED;
+  --dark:#111827;--dark2:#1F2937;--text:#374151;--muted:#6B7280;
+  --light:#F9FAFB;--white:#fff;--border:#E5E7EB;--border2:#F3F4F6;
+  --purple:#7C3AED;--purple-bg:#EDE9FE;
+  --blue:#3B82F6;--blue-bg:#EFF6FF;
+  --green:#10B981;--green-bg:#ECFDF5;
+  --yellow:#F59E0B;--yellow-bg:#FFFBEB;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--light);}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:4px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 4%;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-img-wrap{height:46px;width:115px;display:flex;align-items:center;}
+.logo-img-wrap img{height:46px;width:115px;display:block;object-fit:contain;}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+.nav-links a{color:var(--text);text-decoration:none;font-size:13.5px;font-weight:500;padding:6px 11px;border-radius:6px;transition:all .2s;white-space:nowrap;position:relative;}
+.nav-links a:hover{background:var(--light);color:var(--dark);}
+.nav-links a.active{color:var(--orange);font-weight:700;}
+.nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:11px;right:11px;height:2px;background:var(--orange);border-radius:2px;}
+.chevron{font-size:9px;color:var(--muted);}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.btn-careers-nav{display:flex;align-items:center;gap:6px;border:1.5px solid var(--orange);color:var(--orange);padding:8px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-careers-nav:hover{background:var(--orange-bg);}
+.btn-contact-nav{display:flex;align-items:center;gap:6px;background:var(--orange);color:#fff;padding:9px 18px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-contact-nav:hover{background:#EA6C0A;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;}
+.mob-nav{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:20px;}
+.mob-nav.open{display:flex;}
+.mob-nav a{font-size:20px;font-weight:700;color:var(--dark);text-decoration:none;padding:8px 0;min-height:44px;display:flex;align-items:center;}
+.mob-nav a:hover{color:var(--orange);}
+.mob-close{position:absolute;top:20px;right:16px;font-size:26px;color:var(--dark);cursor:pointer;background:none;border:none;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;}
+
+/* COMMONS */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s,transform .65s;}
+.reveal.visible{opacity:1;transform:none;}
+.ctr{max-width:1280px;margin:0 auto;}
+.slbl{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.stitle{font-size:clamp(26px,3.5vw,44px);font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:14px;}
+.stitle span{color:var(--orange);}
+.sdesc{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;}
+.sh-ctr{text-align:center;}.sh-ctr .sdesc{margin:0 auto;}
+section{padding:88px 4%;}
+.btn-pri{background:var(--orange);color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(249,115,22,.3);display:inline-flex;align-items:center;gap:8px;}
+.btn-pri:hover{background:#EA6C0A;transform:translateY(-2px);}
+.btn-out{background:#fff;color:var(--dark);border:1.5px solid var(--border);padding:14px 28px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-out:hover{border-color:var(--orange);color:var(--orange);}
+
+/* ── HERO ── */
+.fl-hero{padding:120px 4% 80px;background:linear-gradient(135deg,#fff 0%,#FFF7ED 55%,#FEF3E8 100%);position:relative;overflow:hidden;}
+.fl-blob{position:absolute;top:-80px;right:-100px;width:580px;height:580px;background:radial-gradient(circle,rgba(249,115,22,.07),transparent 70%);pointer-events:none;}
+.fl-blob2{position:absolute;bottom:-60px;left:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(249,115,22,.05),transparent 70%);pointer-events:none;}
+.fl-hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.fl-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:30px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--orange);margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--orange);}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+.bdot{animation:pulse 1.5s infinite;}
+.fl-hero-title{font-size:clamp(36px,5vw,66px);font-weight:900;line-height:1.04;color:var(--dark);letter-spacing:-2.5px;margin-bottom:20px;}
+.fl-hero-title span{color:var(--orange);}
+.fl-hero-desc{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:32px;max-width:480px;}
+.fl-hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px;}
+
+/* Coming soon ribbon on hero */
+.coming-strip{display:inline-flex;align-items:center;gap:10px;background:var(--dark);color:#fff;border-radius:10px;padding:11px 18px;font-size:13px;font-weight:600;}
+.coming-strip .cs-dot{width:8px;height:8px;border-radius:50%;background:#F59E0B;animation:pulse 1.5s infinite;flex-shrink:0;}
+.coming-strip .cs-text{color:rgba(255,255,255,.85);}
+.coming-strip strong{color:#F59E0B;}
+
+/* Hero right: platform cards */
+.fl-platform-stack{display:flex;flex-direction:column;gap:14px;}
+.plat-card-hero{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:16px;transition:all .3s;position:relative;overflow:hidden;}
+.plat-card-hero:hover{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.12);transform:translateX(4px);}
+.plat-card-hero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:16px 0 0 16px;}
+.plat-card-hero.upwork::before{background:#14A800;}
+.plat-card-hero.fiverr::before{background:#1DBF73;}
+.plat-card-hero.freelancer::before{background:#29B2FE;}
+.plat-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;font-weight:900;}
+.plat-card-hero.upwork .plat-icon{background:#E6F9E4;color:#14A800;}
+.plat-card-hero.fiverr .plat-icon{background:#E6F9F0;color:#1DBF73;}
+.plat-card-hero.freelancer .plat-icon{background:#E6F4FF;color:#29B2FE;}
+.plat-info h4{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:2px;}
+.plat-info p{font-size:12.5px;color:var(--muted);}
+.plat-badge-soon{margin-left:auto;background:var(--yellow-bg);color:var(--yellow);font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.5px;white-space:nowrap;flex-shrink:0;border:1px solid rgba(245,158,11,.2);}
+
+/* ── WHAT THIS PAGE IS ── */
+.about-strip{background:var(--dark);padding:40px 4%;}
+.about-strip-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:48px;flex-wrap:wrap;}
+.as-left{flex:1;min-width:260px;}
+.as-left h3{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.3px;margin-bottom:8px;}
+.as-left p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;}
+.as-stats{display:flex;gap:36px;flex-shrink:0;flex-wrap:wrap;}
+.as-stat strong{display:block;font-size:30px;font-weight:900;color:var(--orange);letter-spacing:-1px;}
+.as-stat span{font-size:12px;color:rgba(255,255,255,.5);font-weight:500;}
+
+/* ── SERVICES WE OFFER ── */
+#services{background:var(--light);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;}
+.sc{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s;}
+.sc:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+.sc-top{height:90px;display:flex;align-items:flex-end;padding:18px 24px;}
+.sc-ico{width:48px;height:48px;background:#fff;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.sc.pu .sc-top{background:var(--purple-bg);}
+.sc.bl .sc-top{background:var(--blue-bg);}
+.sc.yl .sc-top{background:var(--yellow-bg);}
+.sc.gr .sc-top{background:var(--green-bg);}
+.sc.or .sc-top{background:var(--orange-bg);}
+.sc.pk .sc-top{background:#FEF2F2;}
+.sc-body{padding:20px 24px 24px;}
+.sc-body h3{font-size:16px;font-weight:800;color:var(--dark);margin-bottom:8px;letter-spacing:-.3px;}
+.sc-body p{font-size:13.5px;color:var(--muted);line-height:1.65;}
+.sc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.sc-tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--light);color:var(--muted);border:1px solid var(--border2);}
+
+/* ── PLATFORMS DEEP DIVE ── */
+#platforms{background:#fff;}
+.plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;}
+.platform-card{border-radius:20px;overflow:hidden;border:1.5px solid var(--border);transition:all .3s;background:#fff;}
+.platform-card:hover{transform:translateY(-6px);box-shadow:0 20px 56px rgba(0,0,0,.1);}
+.pc-head{padding:32px 28px 24px;position:relative;overflow:hidden;}
+.pc-head-glow{position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;opacity:.12;pointer-events:none;}
+.platform-card.upwork .pc-head{background:linear-gradient(135deg,#E6F9E4,#fff);}
+.platform-card.fiverr .pc-head{background:linear-gradient(135deg,#E6F9F0,#fff);}
+.platform-card.freelancer .pc-head{background:linear-gradient(135deg,#E6F4FF,#fff);}
+.platform-card.upwork .pc-head-glow{background:#14A800;}
+.platform-card.fiverr .pc-head-glow{background:#1DBF73;}
+.platform-card.freelancer .pc-head-glow{background:#29B2FE;}
+.pc-platform-logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;}
+.pc-logo-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0;}
+.platform-card.upwork .pc-logo-ico{background:#14A800;}
+.platform-card.fiverr .pc-logo-ico{background:#1DBF73;}
+.platform-card.freelancer .pc-logo-ico{background:#29B2FE;}
+.pc-logo-name{font-size:18px;font-weight:800;color:var(--dark);letter-spacing:-.3px;}
+.pc-head h3{font-size:14px;font-weight:500;color:var(--muted);margin-bottom:0;}
+.pc-soon{display:inline-flex;align-items:center;gap:7px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:20px;padding:5px 13px;font-size:11px;font-weight:700;color:#D97706;letter-spacing:.5px;margin-top:16px;}
+.pc-soon-dot{width:6px;height:6px;border-radius:50%;background:#F59E0B;animation:pulse 1.5s infinite;}
+.pc-body{padding:20px 28px 28px;}
+.pc-body ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.pc-body ul li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:var(--text);line-height:1.5;}
+.pc-body ul li::before{content:'→';font-weight:700;flex-shrink:0;margin-top:1px;}
+.platform-card.upwork .pc-body ul li::before{color:#14A800;}
+.platform-card.fiverr .pc-body ul li::before{color:#1DBF73;}
+.platform-card.freelancer .pc-body ul li::before{color:#29B2FE;}
+.pc-notify-btn{width:100%;padding:12px;border-radius:10px;font-weight:700;font-size:13.5px;font-family:'Inter',sans-serif;cursor:pointer;transition:all .25s;border:1.5px solid var(--border);background:#fff;color:var(--dark);display:flex;align-items:center;justify-content:center;gap:7px;}
+.platform-card.upwork .pc-notify-btn:hover{border-color:#14A800;color:#14A800;background:#E6F9E4;}
+.platform-card.fiverr .pc-notify-btn:hover{border-color:#1DBF73;color:#1DBF73;background:#E6F9F0;}
+.platform-card.freelancer .pc-notify-btn:hover{border-color:#29B2FE;color:#29B2FE;background:#E6F4FF;}
+
+/* ── WHY HIRE US ON FREELANCING PLATFORMS ── */
+#why{background:var(--light);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:52px;}
+.why-list{display:flex;flex-direction:column;gap:16px;}
+.why-item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;transition:all .3s;}
+.why-item:hover{border-color:var(--orange);transform:translateX(4px);}
+.wi-ico{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+.wi-ico.bl{background:var(--blue-bg);}
+.wi-ico.gr{background:var(--green-bg);}
+.wi-ico.or{background:var(--orange-bg);}
+.wi-ico.pu{background:var(--purple-bg);}
+.wi-ico.yl{background:var(--yellow-bg);}
+.wi-ico.pk{background:#FEF2F2;}
+.why-item h4{font-size:14.5px;font-weight:700;color:var(--dark);margin-bottom:4px;}
+.why-item p{font-size:13px;color:var(--muted);line-height:1.6;}
+.why-vis{background:var(--dark);border-radius:20px;padding:36px;position:relative;overflow:hidden;}
+.why-vis-glow{position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(249,115,22,.15),transparent 65%);pointer-events:none;}
+.why-vis h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.3px;}
+.why-vis p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:28px;}
+.rating-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:14px 16px;background:rgba(255,255,255,.05);border-radius:10px;border:1px solid rgba(255,255,255,.07);}
+.r-stars{color:#F59E0B;font-size:13px;letter-spacing:2px;}
+.r-label{font-size:13px;color:rgba(255,255,255,.65);flex:1;}
+.r-val{font-size:14px;font-weight:700;color:#fff;}
+.why-vis-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.vbadge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:6px 13px;font-size:12px;font-weight:600;color:rgba(255,255,255,.75);}
+.vbadge span{font-size:15px;}
+
+/* ── PROCESS ── */
+#process{background:#fff;}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;position:relative;}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+.ps{text-align:center;padding:0 16px;position:relative;z-index:1;}
+.ps-num{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:18px;font-weight:900;color:var(--orange);box-shadow:0 4px 14px rgba(249,115,22,.15);}
+.ps h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:7px;}
+.ps p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ── NOTIFY SECTION ── */
+#notify{background:var(--light);}
+.notify-wrap{max-width:780px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:20px;padding:52px;text-align:center;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.06);}
+.notify-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);}
+.notify-icon{width:64px;height:64px;border-radius:18px;background:var(--orange-bg);border:1px solid var(--orange-light);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 20px;}
+.notify-wrap h2{font-size:clamp(22px,3vw,32px);font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:10px;}
+.notify-wrap p{font-size:15px;color:var(--muted);line-height:1.7;max-width:440px;margin:0 auto 28px;}
+.notify-form{display:flex;gap:10px;max-width:460px;margin:0 auto;}
+.notify-input{flex:1;background:var(--light);border:1.5px solid var(--border);border-radius:9px;padding:13px 16px;color:var(--dark);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.notify-input:focus{border-color:var(--orange);background:#fff;}
+.notify-btn{background:var(--orange);color:#fff;padding:13px 22px;border-radius:9px;font-weight:700;font-size:14px;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s;white-space:nowrap;}
+.notify-btn:hover{background:#EA6C0A;transform:translateY(-1px);}
+.notify-note{font-size:12px;color:var(--muted);margin-top:12px;}
+#notify-msg{display:none;margin-top:14px;padding:11px 18px;border-radius:9px;font-size:14px;font-weight:600;}
+
+/* ── DIRECT SERVICES ── */
+#direct{background:#fff;}
+.direct-wrap{background:linear-gradient(135deg,var(--orange-bg),#fff 50%,var(--orange-bg));border:1px solid var(--orange-light);border-radius:20px;padding:56px;display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;position:relative;overflow:hidden;}
+.direct-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);}
+.dw-left .slbl{margin-bottom:10px;}
+.dw-left h3{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:12px;line-height:1.2;}
+.dw-left p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px;}
+.dw-left .btn-pri{margin-right:12px;}
+.dw-right{display:flex;flex-direction:column;gap:13px;}
+.dr-item{display:flex;align-items:center;gap:13px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;transition:all .3s;}
+.dr-item:hover{border-color:var(--orange);box-shadow:0 4px 16px rgba(249,115,22,.1);}
+.dr-ico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.dr-item h5{font-size:13.5px;font-weight:700;color:var(--dark);margin-bottom:2px;}
+.dr-item p{font-size:12px;color:var(--muted);}
+
+/* ── CTA BANNER ── */
+.cta-ban{background:linear-gradient(135deg,var(--orange),#EA580C);border-radius:20px;margin:0 4% 0;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:30px;box-shadow:0 20px 60px rgba(249,115,22,.3);}
+.cta-ban h3{font-size:30px;font-weight:900;color:#fff;letter-spacing:-.5px;max-width:480px;line-height:1.2;}
+.cta-ban p{color:rgba(255,255,255,.85);margin-top:8px;font-size:14px;}
+.btn-wh{background:#fff;color:var(--orange);padding:13px 28px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;}
+.btn-wh:hover{background:#FFF7ED;transform:translateY(-2px);}
+
+/* ── FOOTER ── */
+footer{background:#181410;color:#E5E7EB;padding:64px 4% 0;}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07);}
+.ft-brand-logo{margin-bottom:18px;}
+.ft-brand-text{display:inline-flex;flex-direction:column;line-height:1;}
+.ft-brand-text .ft-logo-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.ft-brand-text .ft-logo-name span{color:var(--orange);}
+.ft-brand-text .ft-logo-tag{font-size:9.5px;font-weight:700;color:rgba(254,252,251,.815);letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;}
+.ft-brand-desc{color:#9CA3AF;font-size:13.5px;line-height:1.7;max-width:280px;margin-bottom:18px;}
+.ft-contact-items{display:flex;flex-direction:column;gap:10px;}
+.ft-ci{display:flex;align-items:center;gap:11px;}
+.ft-ci-icon{width:34px;height:34px;background:#2a1f0f;border:1px solid rgba(249,115,22,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:var(--orange);}
+.ft-ci a,.ft-ci span{color:#9CA3AF;font-size:13.5px;text-decoration:none;transition:color .2s;}
+.ft-ci a:hover{color:var(--orange);}
+.ft-col h5{font-size:15px;font-weight:700;color:#fff;margin-bottom:14px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.ft-col ul li a{color:#9CA3AF;text-decoration:none;font-size:13.5px;transition:color .2s;}
+.ft-col ul li a:hover{color:var(--orange);}
+.ft-follow{margin-top:22px;}
+.ft-follow h5{font-size:15px;font-weight:700;color:#fff;margin-bottom:11px;}
+.ft-soc{display:flex;gap:9px;}
+.fsl{width:38px;height:38px;border-radius:9px;background:#2a1f0f;border:1px solid rgba(249,115,22,.2);display:flex;align-items:center;justify-content:center;font-size:14px;color:#9CA3AF;text-decoration:none;transition:all .25s;}
+.fsl:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+.ft-bot{padding:18px 0 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.ft-bot p,.ft-bot a{color:#6B7280;font-size:13px;text-decoration:none;transition:color .2s;}
+.ft-bot a:hover{color:var(--orange);}
+.ft-bot-links{display:flex;gap:18px;}
+
+/* MOBILE OPTIMIZATION */
+@supports(padding:max(0px)){
+  nav{padding-left:max(4%,env(safe-area-inset-left));padding-right:max(4%,env(safe-area-inset-right));}
+  body{padding-bottom:env(safe-area-inset-bottom);}
+}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-overflow-scrolling:touch;}
+input,textarea,select{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+a,button{touch-action:manipulation;}
+
+@media(max-width:1024px){
+  .fl-hero-inner{gap:40px;}
+  .srv-grid{grid-template-columns:1fr 1fr;}
+  .plat-grid{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr;gap:36px;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .process-steps::before{display:none;}
+  .direct-wrap{grid-template-columns:1fr;gap:36px;padding:36px;}
+  .ft-grid{grid-template-columns:1fr 1fr;}
+  .cta-ban{padding:40px 32px;}
+  .btn-careers-nav{display:none;}
+}
+@media(max-width:768px){
+  nav{padding:0 16px;height:60px;gap:10px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .btn-careers-nav{display:none;}
+  .logo-img-wrap{height:38px;width:95px;}
+  .logo-img-wrap img{height:38px;width:95px;}
+  .btn-contact-nav{padding:8px 13px;font-size:12px;}
+
+  .fl-hero{padding:88px 16px 56px;}
+  .fl-hero-inner{grid-template-columns:1fr;gap:32px;}
+  .fl-hero-title{font-size:clamp(30px,9vw,48px);letter-spacing:-1.5px;}
+  .fl-hero-desc{font-size:14px;max-width:100%;}
+  .fl-hero-btns{flex-direction:column;}
+  .fl-hero-btns a,.fl-hero-btns .coming-strip{width:100%;justify-content:center;}
+
+  .about-strip{padding:28px 16px;}
+  .about-strip-inner{gap:24px;}
+  .as-stats{gap:20px;}
+
+  section{padding:56px 16px;}
+  .stitle{font-size:clamp(22px,7vw,34px);}
+  .sdesc{font-size:14px;}
+
+  .srv-grid{grid-template-columns:1fr;}
+  .plat-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+
+  .notify-wrap{padding:32px 20px;}
+  .notify-form{flex-direction:column;}
+  .notify-btn{width:100%;}
+
+  .direct-wrap{grid-template-columns:1fr;gap:24px;padding:24px 16px;}
+  .dw-left .btn-pri{width:100%;justify-content:center;margin-right:0;margin-bottom:10px;}
+  .dw-left .btn-out{width:100%;justify-content:center;}
+
+  .cta-ban{flex-direction:column;text-align:center;padding:28px 16px;margin:0 16px 0;}
+  .cta-ban h3{font-size:22px;}
+  .btn-wh{width:100%;justify-content:center;}
+
+  .ft-grid{grid-template-columns:1fr;}
+  .ft-bot{flex-direction:column;gap:8px;text-align:center;}
+  .ft-bot-links{gap:12px;flex-wrap:wrap;justify-content:center;}
+  footer{padding:40px 16px 0;}
+}
+@media(max-width:480px){
+  .fl-hero-title{font-size:28px;}
+  .srv-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr;}
+  .btn-pri,.btn-out{width:100%;justify-content:center;}
+  .cta-ban{margin:0 12px 0;}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="index.html#services" onclick="closeMob()">Services</a>
+  <a href="index.html#industries" onclick="closeMob()">Industries</a>
+  <a href="index.html#case-studies" onclick="closeMob()">Case Studies</a>
+  <a href="index.html#reviews" onclick="closeMob()">Reviews</a>
+  <a href="index.html#insights" onclick="closeMob()">Insights</a>
+  <a href="packages.html" onclick="closeMob()">Packages</a>
+  <a href="career.html" onclick="closeMob()">Careers</a>
+  <a href="freelancing.html" onclick="closeMob()">Freelancing</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="nb">
+  <a href="index.html" class="logo">
+    <div class="logo-img-wrap">
+      <img src="alpha_analytics_logo_1779024028668.png" alt="AlphaAnalytics"/>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services <span class="chevron">▾</span></a></li>
+    <li><a href="index.html#industries">Industries</a></li>
+    <li><a href="index.html#case-studies">Case Studies</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="freelancing.html" class="active">Freelancing</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="career.html" class="btn-careers-nav">🧳 Careers</a>
+    <a href="index.html#contact" class="btn-contact-nav">📞 Contact Us</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="fl-hero">
+  <div class="fl-blob"></div>
+  <div class="fl-blob2"></div>
+  <div class="fl-hero-inner">
+    <div>
+      <div class="fl-badge"><span class="bdot"></span> Coming Soon to Freelancing Platforms</div>
+      <h1 class="fl-hero-title">Find Us on the<br/><span>Platforms You</span><br/>Already Use</h1>
+      <p class="fl-hero-desc">AlphaAnalytics is preparing to launch on Upwork, Fiverr, and Freelancer.com. Same expert data analytics team — now accessible through your trusted freelancing platform of choice.</p>
+      <div class="fl-hero-btns">
+        <a href="#notify" class="btn-pri">🔔 Notify Me When Live</a>
+        <a href="index.html#contact" class="btn-out">Work With Us Now</a>
+      </div>
+      <div class="coming-strip">
+        <span class="cs-dot"></span>
+        <span class="cs-text">Launching on platforms <strong>soon</strong> — notify list open now</span>
+      </div>
+    </div>
+    <div class="fl-platform-stack reveal">
+      <div class="plat-card-hero upwork">
+        <div class="plat-icon">U</div>
+        <div class="plat-info">
+          <h4>Upwork</h4>
+          <p>Data analytics projects, hourly & fixed contracts</p>
+        </div>
+        <div class="plat-badge-soon">Coming Soon</div>
+      </div>
+      <div class="plat-card-hero fiverr">
+        <div class="plat-icon">F</div>
+        <div class="plat-info">
+          <h4>Fiverr</h4>
+          <p>Fixed-price gigs for cleaning, EDA & dashboards</p>
+        </div>
+        <div class="plat-badge-soon">Coming Soon</div>
+      </div>
+      <div class="plat-card-hero freelancer">
+        <div class="plat-icon">FL</div>
+        <div class="plat-info">
+          <h4>Freelancer.com</h4>
+          <p>Competitive bids on data & analytics projects</p>
+        </div>
+        <div class="plat-badge-soon">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DARK STRIP -->
+<div class="about-strip">
+  <div class="about-strip-inner">
+    <div class="as-left">
+      <h3>Why We're Coming to Freelancing Platforms</h3>
+      <p>Many clients prefer hiring through Upwork, Fiverr, or Freelancer.com for the escrow protection, review system, and familiar workflow. We're meeting you where you already work.</p>
+    </div>
+    <div class="as-stats">
+      <div class="as-stat"><strong>50+</strong><span>Clients Served</span></div>
+      <div class="as-stat"><strong>5★</strong><span>Avg. Rating</span></div>
+      <div class="as-stat"><strong>3</strong><span>Platforms</span></div>
+      <div class="as-stat"><strong>Soon</strong><span>Going Live</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES WE OFFER -->
+<section id="services">
+  <div class="ctr">
+    <div class="sh-ctr reveal">
+      <div class="slbl">What We'll Offer</div>
+      <h2 class="stitle">Services Available on <span>Every Platform</span></h2>
+      <p class="sdesc">The same six core analytics services we deliver for direct clients — listed as gigs and contracts on Upwork, Fiverr, and Freelancer.com.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="sc pu reveal">
+        <div class="sc-top"><div class="sc-ico">🧹</div></div>
+        <div class="sc-body">
+          <h3>Data Cleaning & Preparation</h3>
+          <p>Remove duplicates, fix nulls, standardise formats, and deliver a clean, analysis-ready dataset. Works on CSV, Excel, SQL exports, and raw scraped data.</p>
+          <div class="sc-tags"><span class="sc-tag">Python</span><span class="sc-tag">Pandas</span><span class="sc-tag">Excel</span></div>
+        </div>
+      </div>
+      <div class="sc bl reveal">
+        <div class="sc-top"><div class="sc-ico">🔍</div></div>
+        <div class="sc-body">
+          <h3>Exploratory Data Analysis</h3>
+          <p>Deep-dive EDA with visualisations, statistical summaries, correlation analysis, and plain-English insights that non-technical stakeholders can act on.</p>
+          <div class="sc-tags"><span class="sc-tag">Matplotlib</span><span class="sc-tag">Seaborn</span><span class="sc-tag">NumPy</span></div>
+        </div>
+      </div>
+      <div class="sc or reveal">
+        <div class="sc-top"><div class="sc-ico">📊</div></div>
+        <div class="sc-body">
+          <h3>Power BI Dashboards</h3>
+          <p>Custom interactive dashboards with DAX measures, KPI cards, slicers, and drill-through pages — built for sales, marketing, finance, or HR teams.</p>
+          <div class="sc-tags"><span class="sc-tag">Power BI</span><span class="sc-tag">DAX</span><span class="sc-tag">SQL</span></div>
+        </div>
+      </div>
+      <div class="sc gr reveal">
+        <div class="sc-top"><div class="sc-ico">🗄️</div></div>
+        <div class="sc-body">
+          <h3>SQL Data Work</h3>
+          <p>Query writing, ETL pipeline building, schema design, and reporting views — across MySQL, PostgreSQL, and SQLite. Clean, optimised, documented.</p>
+          <div class="sc-tags"><span class="sc-tag">MySQL</span><span class="sc-tag">PostgreSQL</span><span class="sc-tag">ETL</span></div>
+        </div>
+      </div>
+      <div class="sc yl reveal">
+        <div class="sc-top"><div class="sc-ico">⚡</div></div>
+        <div class="sc-body">
+          <h3>Excel Automation</h3>
+          <p>Dynamic reports, Power Query pipelines, VBA macros, and pivot dashboards that save your team hours every week. Fully documented and handed over clean.</p>
+          <div class="sc-tags"><span class="sc-tag">Excel</span><span class="sc-tag">VBA</span><span class="sc-tag">Power Query</span></div>
+        </div>
+      </div>
+      <div class="sc pk reveal">
+        <div class="sc-top"><div class="sc-ico">🤖</div></div>
+        <div class="sc-body">
+          <h3>ML Data Preparation</h3>
+          <p>End-to-end data prep for ML models — feature engineering, encoding, scaling, outlier handling, stratified train/test splits, and Sklearn-ready pipelines.</p>
+          <div class="sc-tags"><span class="sc-tag">Sklearn</span><span class="sc-tag">Python</span><span class="sc-tag">Feature Eng.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS DEEP DIVE -->
+<section id="platforms">
+  <div class="ctr">
+    <div class="sh-ctr reveal">
+      <div class="slbl">Our Platforms</div>
+      <h2 class="stitle">Where You'll <span>Find Us</span></h2>
+      <p class="sdesc">We're setting up profiles on three major freelancing platforms. Choose the one you're most comfortable with.</p>
+    </div>
+    <div class="plat-grid">
+
+      <!-- UPWORK -->
+      <div class="platform-card upwork reveal">
+        <div class="pc-head">
+          <div class="pc-head-glow"></div>
+          <div class="pc-platform-logo">
+            <div class="pc-logo-ico">U</div>
+            <span class="pc-logo-name">Upwork</span>
+          </div>
+          <h3>Best for long-term contracts and hourly projects</h3>
+          <div class="pc-soon"><span class="pc-soon-dot"></span> Profile Coming Soon</div>
+        </div>
+        <div class="pc-body">
+          <ul>
+            <li>Hourly and fixed-price contracts available</li>
+            <li>Full escrow payment protection via Upwork</li>
+            <li>Direct messaging and milestone tracking</li>
+            <li>All six analytics services listed as contracts</li>
+            <li>Portfolio and verified reviews visible on profile</li>
+          </ul>
+          <button class="pc-notify-btn" onclick="scrollToNotify()">🔔 Notify me when live</button>
+        </div>
+      </div>
+
+      <!-- FIVERR -->
+      <div class="platform-card fiverr reveal">
+        <div class="pc-head">
+          <div class="pc-head-glow"></div>
+          <div class="pc-platform-logo">
+            <div class="pc-logo-ico">F</div>
+            <span class="pc-logo-name">Fiverr</span>
+          </div>
+          <h3>Best for quick, fixed-scope gigs with fast delivery</h3>
+          <div class="pc-soon"><span class="pc-soon-dot"></span> Gigs Coming Soon</div>
+        </div>
+        <div class="pc-body">
+          <ul>
+            <li>Fixed-price gigs for every service type</li>
+            <li>Starter, Standard, and Premium tiers per gig</li>
+            <li>Fast turnaround options for urgent projects</li>
+            <li>Secure payments held until delivery approved</li>
+            <li>Clear deliverables listed upfront — no surprises</li>
+          </ul>
+          <button class="pc-notify-btn" onclick="scrollToNotify()">🔔 Notify me when live</button>
+        </div>
+      </div>
+
+      <!-- FREELANCER -->
+      <div class="platform-card freelancer reveal">
+        <div class="pc-head">
+          <div class="pc-head-glow"></div>
+          <div class="pc-platform-logo">
+            <div class="pc-logo-ico">FL</div>
+            <span class="pc-logo-name">Freelancer.com</span>
+          </div>
+          <h3>Best for posting projects and receiving competitive bids</h3>
+          <div class="pc-soon"><span class="pc-soon-dot"></span> Profile Coming Soon</div>
+        </div>
+        <div class="pc-body">
+          <ul>
+            <li>Post your project and receive a tailored bid</li>
+            <li>Milestone-based payment structure</li>
+            <li>Real-time chat and file sharing in-platform</li>
+            <li>Open to India and international clients</li>
+            <li>Verified skills badges displayed on profile</li>
+          </ul>
+          <button class="pc-notify-btn" onclick="scrollToNotify()">🔔 Notify me when live</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE US -->
+<section id="why">
+  <div class="ctr">
+    <div class="reveal">
+      <div class="slbl">Why AlphaAnalytics</div>
+      <h2 class="stitle">What Sets Us Apart on <span>Any Platform</span></h2>
+      <p class="sdesc">Platform reputation takes time to build — but our work speaks before the reviews come in.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item reveal">
+          <div class="wi-ico bl">📁</div>
+          <div>
+            <h4>Portfolio-Proven Work</h4>
+            <p>Live GitHub projects — real datasets, real problems, documented notebooks. Not mock examples.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-ico gr">⚡</div>
+          <div>
+            <h4>Fast Delivery Without Cutting Corners</h4>
+            <p>Standard turnaround 2–5 days. Every deliverable is clean, documented, and explained — no guesswork for the client.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-ico or">🗣️</div>
+          <div>
+            <h4>Clear Communication Throughout</h4>
+            <p>We clarify requirements before starting, give progress updates, and explain the output in plain language — not jargon.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-ico pu">🔁</div>
+          <div>
+            <h4>Revisions Until It's Right</h4>
+            <p>Every project includes at least one revision round. We don't mark complete until you're satisfied with the output.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-ico yl">🇮🇳</div>
+          <div>
+            <h4>India-Based, World-Class Delivery</h4>
+            <p>Based in India, serving clients globally. Competitive pricing with no compromise on quality or professionalism.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="wi-ico pk">🤝</div>
+          <div>
+            <h4>Long-Term Relationship First</h4>
+            <p>We'd rather build a retainer client than chase one-off projects. Our goal is to become your go-to analytics team.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-vis reveal">
+        <div class="why-vis-glow"></div>
+        <h3>Our Track Record</h3>
+        <p>Direct client history before we launch on platforms — here's what the profile will reflect.</p>
+        <div class="rating-row">
+          <div class="r-stars">★★★★½</div>
+          <div class="r-label">Quality of Work</div>
+          <div class="r-val">4.5</div>
+        </div>
+        <div class="rating-row">
+          <div class="r-stars">★★★★☆</div>
+          <div class="r-label">Communication</div>
+          <div class="r-val">4.0</div>
+        </div>
+        <div class="rating-row">
+          <div class="r-stars">★★★★★</div>
+          <div class="r-label">On-Time Delivery</div>
+          <div class="r-val">5.0</div>
+        </div>
+        <div class="rating-row">
+          <div class="r-stars">★★★★½</div>
+          <div class="r-label">Value for Money</div>
+          <div class="r-val">4.5</div>
+        </div>
+        <div class="why-vis-badges">
+          <div class="vbadge"><span>✓</span> 50+ Projects</div>
+          <div class="vbadge"><span>✓</span> 100% Delivery Rate</div>
+          <div class="vbadge"><span>✓</span> 2+ Years Active</div>
+          <div class="vbadge"><span>✓</span> India-Based Team</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="ctr">
+    <div class="sh-ctr reveal">
+      <div class="slbl">How It Works</div>
+      <h2 class="stitle">Simple Process, <span>Every Time</span></h2>
+      <p class="sdesc">Whether you hire us directly or through a platform, the workflow is the same — simple, fast, and fully transparent.</p>
+    </div>
+    <div class="process-steps">
+      <div class="ps reveal">
+        <div class="ps-num">01</div>
+        <h4>Find Us & Send Brief</h4>
+        <p>Find our profile on your preferred platform (or contact us directly) and share what data you have and what you need.</p>
+      </div>
+      <div class="ps reveal">
+        <div class="ps-num">02</div>
+        <h4>We Clarify & Quote</h4>
+        <p>We ask any needed clarification questions, confirm scope, and send a clear quote with deliverables and timeline.</p>
+      </div>
+      <div class="ps reveal">
+        <div class="ps-num">03</div>
+        <h4>We Deliver & Review</h4>
+        <p>Deliver the work within agreed timeline. You review, request revisions if needed, and we iterate until it's right.</p>
+      </div>
+      <div class="ps reveal">
+        <div class="ps-num">04</div>
+        <h4>Complete & Repeat</h4>
+        <p>Mark complete, release payment via the platform's escrow. Many clients come back with the next project within weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTIFY FORM -->
+<section id="notify">
+  <div class="ctr">
+    <div class="notify-wrap reveal">
+      <div class="notify-icon">🔔</div>
+      <h2>Get Notified When We Go Live</h2>
+      <p>Leave your email and we'll send one notification the day our Upwork, Fiverr, and Freelancer.com profiles go live. No spam, ever.</p>
+      <div class="notify-form">
+        <input type="email" class="notify-input" id="notifyEmail" placeholder="your@email.com"/>
+        <button class="notify-btn" onclick="submitNotify()">Notify Me</button>
+      </div>
+      <div class="notify-note">We'll send one email when profiles go live. No newsletters, no spam.</div>
+      <div id="notify-msg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECT SERVICES CALLOUT -->
+<section id="direct" style="padding-bottom:0;">
+  <div class="ctr">
+    <div class="direct-wrap reveal">
+      <div class="dw-left">
+        <div class="slbl">Can't Wait?</div>
+        <h3>Hire Us Directly Right Now</h3>
+        <p>Platforms are coming soon, but we're fully operational for direct clients today. Same team, same quality — faster response without platform fees.</p>
+        <a href="index.html#contact" class="btn-pri">Get a Quote Today</a>
+        <a href="packages.html" class="btn-out">View Packages</a>
+      </div>
+      <div class="dw-right">
+        <div class="dr-item">
+          <div class="dr-ico" style="background:var(--orange-bg);">✉️</div>
+          <div>
+            <h5>Email Us Directly</h5>
+            <p><a href="mailto:alphaanalyticssolutions@gmail.com" style="color:var(--orange);text-decoration:none;font-size:13px;">alphaanalyticssolutions@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="dr-item">
+          <div class="dr-ico" style="background:var(--green-bg);">⚡</div>
+          <div>
+            <h5>Fast Response</h5>
+            <p style="font-size:13px;color:var(--muted);">We reply within 24 hours on business days — typically much faster.</p>
+          </div>
+        </div>
+        <div class="dr-item">
+          <div class="dr-ico" style="background:var(--blue-bg);">💸</div>
+          <div>
+            <h5>No Platform Fee</h5>
+            <p style="font-size:13px;color:var(--muted);">Direct clients skip the 5–20% platform cut — we pass that saving on to you.</p>
+          </div>
+        </div>
+        <div class="dr-item">
+          <div class="dr-ico" style="background:var(--purple-bg);">📄</div>
+          <div>
+            <h5>Transparent Packages</h5>
+            <p style="font-size:13px;color:var(--muted);">Fixed-price tiers from ₹4,999 — no surprise invoices, no scope creep.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section style="padding:64px 4% 0;background:#fff;">
+  <div class="cta-ban reveal">
+    <div>
+      <h3>Have a Data Project Waiting?</h3>
+      <p>Don't wait for the platform launch — reach out directly and get started today.</p>
+    </div>
+    <a href="index.html#contact" class="btn-wh">Start Your Project →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand-logo">
+        <div class="ft-brand-text">
+          <span class="ft-logo-name">Alpha<span>Analytics</span></span>
+          <span class="ft-logo-tag">Data Driven Solutions</span>
+        </div>
+      </div>
+      <p class="ft-brand-desc">Freelance data analytics team helping businesses improve decisions with reliable, fast data workflows — from cleaning to dashboards and ML pipelines.</p>
+      <div class="ft-contact-items">
+        <div class="ft-ci"><div class="ft-ci-icon">✉️</div><a href="mailto:alphaanalyticssolutions@gmail.com">alphaanalyticssolutions@gmail.com</a></div>
+        <div class="ft-ci"><div class="ft-ci-icon">📍</div><span>Based in India — Serving clients worldwide</span></div>
+      </div>
+    </div>
+    <div class="ft-col"><h5>Services</h5><ul>
+      <li><a href="index.html#services">Data Cleaning</a></li>
+      <li><a href="index.html#services">EDA Reports</a></li>
+      <li><a href="index.html#services">Power BI Dashboards</a></li>
+      <li><a href="index.html#services">SQL Data Work</a></li>
+      <li><a href="index.html#services">Excel Automation</a></li>
+      <li><a href="index.html#services">ML Data Prep</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Company</h5><ul>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#case-studies">Case Studies</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+      <li><a href="career.html">Careers</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="freelancing.html">Freelancing</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Resources</h5><ul>
+      <li><a href="index.html#contact">Get a Quote</a></li>
+      <li><a href="mailto:alphaanalyticssolutions@gmail.com">Email Us</a></li>
+      <li><a href="packages.html">Packages &amp; Pricing</a></li>
+      <li><a href="index.html#insights">Insights &amp; Blog</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <div class="ft-follow"><h5>Follow Us</h5>
+      <div class="ft-soc">
+        <a href="#" class="fsl" title="LinkedIn">in</a>
+        <a href="mailto:alphaanalyticssolutions@gmail.com" class="fsl" title="Email">✉</a>
+        <a href="https://www.instagram.com/alphaanalyticsteam/" class="fsl" target="_blank" rel="noopener" title="Instagram">ig</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2025 AlphaAnalytics. All rights reserved.</p>
+    <div class="ft-bot-links">
+      <a href="#">Privacy Policy</a>
+      <a href="mailto:alphaanalyticssolutions@gmail.com">Contact</a>
+      <a href="career.html">Careers</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openMob(){document.getElementById('mobNav').classList.add('open');}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');}
+
+const _rev=document.querySelectorAll('.reveal');
+const _obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');_obs.unobserve(x.target);}});},{threshold:.1});
+_rev.forEach(el=>_obs.observe(el));
+
+function scrollToNotify(){
+  document.getElementById('notify').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function submitNotify(){
+  const email=document.getElementById('notifyEmail').value.trim();
+  const msg=document.getElementById('notify-msg');
+  if(!email||!email.includes('@')){
+    msg.style.cssText='display:block;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);color:#EF4444;padding:11px 18px;border-radius:9px;font-size:14px;font-weight:600;margin-top:14px;';
+    msg.textContent='Please enter a valid email address.';
+    return;
+  }
+  msg.style.cssText='display:block;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);color:#10B981;padding:11px 18px;border-radius:9px;font-size:14px;font-weight:600;margin-top:14px;';
+  msg.textContent='✓ You\'re on the list! We\'ll email you the day we go live.';
+  document.getElementById('notifyEmail').value='';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#F97316"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<title>Packages & Pricing | AlphaAnalytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --orange:#F97316;--orange-light:#FED7AA;--orange-bg:#FFF7ED;
+  --dark:#111827;--dark2:#1F2937;--text:#374151;--muted:#6B7280;
+  --light:#F9FAFB;--white:#fff;--border:#E5E7EB;--border2:#F3F4F6;
+  --purple:#7C3AED;--purple-bg:#EDE9FE;
+  --blue:#3B82F6;--blue-bg:#EFF6FF;
+  --green:#10B981;--green-bg:#ECFDF5;
+  --yellow:#F59E0B;--yellow-bg:#FFFBEB;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--light);}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:4px;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 4%;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-img-wrap{height:46px;width:115px;display:flex;align-items:center;}
+.logo-img-wrap img{height:46px;width:115px;display:block;object-fit:contain;}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+.nav-links a{color:var(--text);text-decoration:none;font-size:13.5px;font-weight:500;padding:6px 11px;border-radius:6px;transition:all .2s;white-space:nowrap;position:relative;}
+.nav-links a:hover{background:var(--light);color:var(--dark);}
+.nav-links a.active{color:var(--orange);font-weight:700;}
+.nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:11px;right:11px;height:2px;background:var(--orange);border-radius:2px;}
+.chevron{font-size:9px;color:var(--muted);}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.btn-careers-nav{display:flex;align-items:center;gap:6px;border:1.5px solid var(--orange);color:var(--orange);padding:8px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-careers-nav:hover{background:var(--orange-bg);}
+.btn-contact-nav{display:flex;align-items:center;gap:6px;background:var(--orange);color:#fff;padding:9px 18px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-contact-nav:hover{background:#EA6C0A;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;}
+.mob-nav{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:26px;}
+.mob-nav.open{display:flex;}
+.mob-nav a{font-size:22px;font-weight:700;color:var(--dark);text-decoration:none;}
+.mob-nav a:hover{color:var(--orange);}
+.mob-close{position:absolute;top:20px;right:4%;font-size:26px;color:var(--dark);cursor:pointer;background:none;border:none;}
+
+/* ── COMMONS ── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s,transform .65s;}
+.reveal.visible{opacity:1;transform:none;}
+.ctr{max-width:1280px;margin:0 auto;}
+.slbl{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.stitle{font-size:clamp(26px,3.5vw,44px);font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:14px;}
+.stitle span{color:var(--orange);}
+.sdesc{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;}
+.sh-ctr{text-align:center;}.sh-ctr .sdesc{margin:0 auto;}
+.btn-pri{background:var(--orange);color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(249,115,22,.3);display:inline-flex;align-items:center;gap:8px;}
+.btn-pri:hover{background:#EA6C0A;transform:translateY(-2px);}
+.btn-out{background:#fff;color:var(--dark);border:1.5px solid var(--border);padding:14px 28px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-out:hover{border-color:var(--orange);color:var(--orange);}
+
+/* ── HERO ── */
+.pkg-hero{padding:120px 4% 72px;background:linear-gradient(135deg,#fff 0%,#FFF7ED 55%,#FEF3E8 100%);position:relative;overflow:hidden;text-align:center;}
+.ph-blob{position:absolute;top:-60px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(249,115,22,.07),transparent 70%);pointer-events:none;}
+.ph-blob2{position:absolute;bottom:-40px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(249,115,22,.05),transparent 70%);pointer-events:none;}
+.ph-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:30px;padding:7px 18px;font-size:13px;font-weight:600;color:var(--orange);margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+.ph-title{font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.05;color:var(--dark);letter-spacing:-2px;margin-bottom:18px;}
+.ph-title em{font-style:italic;color:var(--orange);}
+.ph-desc{font-size:16px;color:var(--muted);line-height:1.75;max-width:520px;margin:0 auto 32px;}
+.ph-toggle{display:inline-flex;align-items:center;gap:0;background:var(--light);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:0;}
+.ph-toggle button{padding:8px 22px;border-radius:7px;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;color:var(--muted);background:transparent;}
+.ph-toggle button.active{background:#fff;color:var(--dark);box-shadow:0 2px 8px rgba(0,0,0,.08);}
+
+/* ── MAIN PACKAGES (3 cards) ── */
+#plans{padding:80px 4%;}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;}
+.plan-card{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:36px 32px;display:flex;flex-direction:column;gap:0;transition:all .3s;position:relative;overflow:hidden;}
+.plan-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.1);}
+.plan-card.popular{border-color:var(--orange);box-shadow:0 8px 40px rgba(249,115,22,.15);}
+.plan-card.popular::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),#EA580C);}
+.plan-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.plan-badge.starter{background:#EFF6FF;color:#3B82F6;}
+.plan-badge.popular-badge{background:var(--orange);color:#fff;}
+.plan-badge.premium{background:#EDE9FE;color:#7C3AED;}
+.plan-card h3{font-size:28px;font-weight:900;color:var(--dark);letter-spacing:-.5px;margin-bottom:6px;}
+.plan-tagline{font-size:13px;color:var(--muted);margin-bottom:24px;}
+.plan-price{display:flex;align-items:flex-end;gap:6px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.plan-price .amount{font-size:40px;font-weight:900;color:var(--dark);letter-spacing:-1px;line-height:1;}
+.plan-price .currency{font-size:20px;font-weight:700;color:var(--muted);margin-bottom:4px;}
+.plan-price .period{font-size:13px;color:var(--muted);margin-bottom:4px;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;}
+.plan-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text);line-height:1.4;}
+.plan-features li::before{content:'✦';color:var(--orange);font-size:11px;flex-shrink:0;margin-top:2px;}
+.plan-btn{width:100%;padding:14px;border-radius:10px;font-weight:700;font-size:14px;font-family:'Inter',sans-serif;cursor:pointer;transition:all .25s;border:none;letter-spacing:.2px;}
+.plan-btn.primary{background:var(--orange);color:#fff;box-shadow:0 4px 16px rgba(249,115,22,.3);}
+.plan-btn.primary:hover{background:#EA6C0A;transform:translateY(-1px);}
+.plan-btn.outline{background:#fff;color:var(--dark);border:1.5px solid var(--border);}
+.plan-btn.outline:hover{border-color:var(--orange);color:var(--orange);}
+
+/* ── PLATINUM (ML DATA PREP) — full width ── */
+#platinum{padding:0 4% 80px;}
+.plat-wrap{max-width:1100px;margin:0 auto;}
+.plat-card{background:var(--dark);border-radius:20px;padding:48px 52px;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start;position:relative;overflow:hidden;}
+.plat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F59E0B,#F97316,#F59E0B);}
+.plat-glow{position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(249,115,22,.12),transparent 65%);pointer-events:none;}
+.plat-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#F59E0B;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
+.plat-card h3{font-size:36px;font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:8px;}
+.plat-card .plat-tag{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:20px;}
+.plat-card p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:28px;}
+.plat-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F59E0B,#F97316);color:#fff;padding:14px 30px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(245,158,11,.35);}
+.plat-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,158,11,.45);}
+.plat-features{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.plat-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.4;}
+.plat-features li::before{content:'✦';color:#F59E0B;font-size:11px;flex-shrink:0;margin-top:2px;}
+
+/* ── COMPARISON TABLE ── */
+#compare{padding:88px 4%;background:var(--light);}
+.compare-wrap{max-width:1100px;margin:0 auto;}
+.compare-table{width:100%;border-collapse:collapse;margin-top:48px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.compare-table th{background:var(--dark);color:#fff;padding:16px 20px;font-size:13px;font-weight:700;text-align:left;}
+.compare-table th:first-child{border-radius:0;}
+.compare-table th.pop{background:var(--orange);color:#fff;}
+.compare-table td{padding:14px 20px;font-size:13.5px;border-bottom:1px solid var(--border2);color:var(--text);}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table tr:hover td{background:var(--orange-bg);}
+.compare-table td:first-child{font-weight:600;color:var(--dark);}
+.check{color:var(--green);font-weight:700;font-size:16px;}
+.cross{color:#D1D5DB;font-size:16px;}
+.td-orange{color:var(--orange);font-weight:700;}
+
+/* ── FAQ ── */
+#faq{padding:88px 4%;background:#fff;}
+.faq-wrap{max-width:720px;margin:48px auto 0;}
+.faq-item{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px;transition:all .3s;}
+.faq-item:hover{border-color:rgba(249,115,22,.3);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;font-size:15px;font-weight:600;color:var(--dark);gap:12px;user-select:none;}
+.faq-ico{font-size:18px;color:var(--orange);flex-shrink:0;transition:transform .3s;line-height:1;}
+.faq-item.open .faq-ico{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open{border-color:var(--orange);box-shadow:0 4px 16px rgba(249,115,22,.08);}
+
+/* ── CTA BANNER ── */
+.cta-ban{background:linear-gradient(135deg,var(--orange),#EA580C);border-radius:20px;margin:0 4% 0;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:30px;box-shadow:0 16px 48px rgba(249,115,22,.25);}
+.cta-ban h3{font-size:30px;font-weight:900;color:#fff;letter-spacing:-.5px;max-width:480px;line-height:1.2;}
+.cta-ban p{color:rgba(255,255,255,.85);margin-top:8px;font-size:14px;}
+.btn-wh{background:#fff;color:var(--orange);padding:13px 28px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;white-space:nowrap;}
+.btn-wh:hover{background:#FFF7ED;transform:translateY(-2px);}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 4%;}
+.trust-inner{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;max-width:1100px;margin:0 auto;}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--dark);}
+.trust-item span{font-size:20px;}
+
+/* ── FOOTER ── */
+footer{background:#181410;color:#E5E7EB;padding:64px 4% 0;}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07);}
+.ft-brand-logo{margin-bottom:18px;}
+.ft-brand-text{display:inline-flex;flex-direction:column;line-height:1;}
+.ft-brand-text .ft-logo-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.ft-brand-text .ft-logo-name span{color:var(--orange);}
+.ft-brand-text .ft-logo-tag{font-size:9.5px;font-weight:700;color:rgba(254, 252, 251, 0.815);letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;}
+.ft-brand-desc{color:#9CA3AF;font-size:13.5px;line-height:1.7;max-width:280px;margin-bottom:18px;}
+.ft-contact-items{display:flex;flex-direction:column;gap:10px;}
+.ft-ci{display:flex;align-items:center;gap:11px;}
+.ft-ci-icon{width:34px;height:34px;background:#2a1f0f;border:1px solid rgba(249,115,22,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:var(--orange);}
+.ft-ci a,.ft-ci span{color:#9CA3AF;font-size:13.5px;text-decoration:none;transition:color .2s;}
+.ft-ci a:hover{color:var(--orange);}
+.ft-col h5{font-size:15px;font-weight:700;color:#fff;margin-bottom:14px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.ft-col ul li a{color:#9CA3AF;text-decoration:none;font-size:13.5px;transition:color .2s;}
+.ft-col ul li a:hover{color:var(--orange);}
+.ft-follow{margin-top:22px;}
+.ft-follow h5{font-size:15px;font-weight:700;color:#fff;margin-bottom:11px;}
+.ft-soc{display:flex;gap:9px;}
+.fsl{width:38px;height:38px;border-radius:9px;background:#2a1f0f;border:1px solid rgba(249,115,22,.2);display:flex;align-items:center;justify-content:center;font-size:14px;color:#9CA3AF;text-decoration:none;transition:all .25s;}
+.fsl:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+.ft-bot{padding:18px 0 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.ft-bot p,.ft-bot a{color:#6B7280;font-size:13px;text-decoration:none;transition:color .2s;}
+.ft-bot a:hover{color:var(--orange);}
+.ft-bot-links{display:flex;gap:18px;}
+
+/* ── CROSS-PLATFORM MOBILE OPTIMIZATION ── */
+/* iOS safe area */
+@supports(padding:max(0px)){
+  nav{padding-left:max(4%,env(safe-area-inset-left));padding-right:max(4%,env(safe-area-inset-right));}
+  body{padding-bottom:env(safe-area-inset-bottom);}
+}
+/* Windows font rendering */
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+input,textarea,select{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+a,button{touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center;}
+html{-webkit-overflow-scrolling:touch;}
+
+@media(max-width:1024px){
+  .plans-grid{grid-template-columns:1fr 1fr;}
+  .plat-card{grid-template-columns:1fr;gap:36px;padding:36px;}
+  .plat-features{grid-template-columns:1fr;}
+  .ft-grid{grid-template-columns:1fr 1fr;}
+  .compare-table{font-size:12px;}
+  .cta-ban{padding:40px 32px;}
+  .btn-careers-nav{display:none;}
+}
+@media(max-width:768px){
+  nav{padding:0 16px;height:60px;gap:10px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .btn-careers-nav{display:none;}
+  .logo-img-wrap{height:38px;width:95px;}
+  .logo-img-wrap img{height:38px;width:95px;}
+  .btn-contact-nav{padding:8px 13px;font-size:12px;}
+
+  .pkg-hero{padding:90px 16px 52px;}
+  .ph-title{font-size:clamp(28px,9vw,48px);letter-spacing:-1px;}
+  .ph-desc{font-size:14px;}
+  .ph-toggle{flex-direction:row;}
+
+  #plans{padding:56px 16px;}
+  .plans-grid{grid-template-columns:1fr;}
+  .plan-card{padding:28px 22px;}
+
+  #platinum{padding:0 16px 56px;}
+  .plat-card{padding:28px 20px;}
+  .plat-card h3{font-size:26px;}
+  .plat-features{grid-template-columns:1fr;}
+
+  #compare{padding:56px 16px;}
+  .compare-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:12px;}
+  .compare-table th,.compare-table td{padding:10px 12px;white-space:nowrap;}
+
+  #faq{padding:56px 16px;}
+  .faq-q{font-size:14px;padding:14px 16px;}
+  .faq-a{padding:0 16px 14px;}
+
+  .trust-inner{gap:16px;flex-wrap:wrap;}
+  .trust-item{font-size:12px;}
+
+  .cta-ban{flex-direction:column;text-align:center;padding:28px 16px;margin:0 16px 0;}
+  .cta-ban h3{font-size:22px;}
+  .btn-wh{width:100%;justify-content:center;}
+
+  .ft-grid{grid-template-columns:1fr;}
+  .ft-bot{flex-direction:column;gap:8px;text-align:center;}
+  .ft-bot-links{gap:12px;flex-wrap:wrap;justify-content:center;}
+  footer{padding:40px 16px 0;}
+  .stitle{font-size:clamp(22px,7vw,34px);}
+  .sdesc{font-size:14px;}
+  section{padding:56px 16px;}
+}
+@media(max-width:480px){
+  .pkg-hero{padding:80px 12px 44px;}
+  .plan-card{padding:22px 16px;}
+  .plan-price .amount{font-size:32px;}
+  .plat-card{padding:22px 14px;}
+  .btn-pri,.btn-out,.plat-btn{width:100%;justify-content:center;}
+  .fg input,.fg textarea,.fg select{font-size:16px;}
+  .cta-ban{margin:0 12px 0;}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="index.html#services" onclick="closeMob()">Services</a>
+  <a href="index.html#industries" onclick="closeMob()">Industries</a>
+  <a href="index.html#case-studies" onclick="closeMob()">Case Studies</a>
+  <a href="index.html#reviews" onclick="closeMob()">Reviews</a>
+  <a href="index.html#insights" onclick="closeMob()">Insights</a>
+  <a href="packages.html" onclick="closeMob()">Packages</a>
+  <a href="career.html" onclick="closeMob()">Careers</a>
+  <a href="freelancing.html" onclick="closeMob()">Freelancing</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="nb">
+  <a href="index.html" class="logo">
+    <div class="logo-img-wrap">
+      <img src="alpha_analytics_logo_1779024028668.png" alt="AlphaAnalytics"/>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services <span class="chevron">▾</span></a></li>
+    <li><a href="index.html#industries">Industries</a></li>
+    <li><a href="index.html#case-studies">Case Studies</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#insights">Insights</a></li>
+    <li><a href="packages.html" class="active">Packages</a></li>
+    <li><a href="freelancing.html">Freelancing</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="career.html" class="btn-careers-nav">🧳 Careers</a>
+    <a href="index.html#contact" class="btn-contact-nav">📞 Contact Us</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="pkg-hero">
+  <div class="ph-blob"></div>
+  <div class="ph-blob2"></div>
+  <div class="ph-badge"><span class="bdot"></span> Transparent, Fixed Pricing</div>
+  <h1 class="ph-title">Flexible <em>Engagement</em> Plans</h1>
+  <p class="ph-desc">From your first analytics project to full ML data preparation pipelines — every plan is tailored to your needs. No surprise fees, no hidden costs.</p>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span>✅</span> No hidden fees</div>
+    <div class="trust-item"><span>⚡</span> Fast 5–10 day delivery</div>
+    <div class="trust-item"><span>🔄</span> Revision rounds included</div>
+    <div class="trust-item"><span>🔒</span> NDA on every project</div>
+    <div class="trust-item"><span>⭐</span> 98% client satisfaction</div>
+  </div>
+</div>
+
+<!-- MAIN PLANS (3 cards) -->
+<section id="plans">
+  <div class="ctr">
+    <div class="sh-ctr reveal">
+      <div class="slbl">Choose Your Plan</div>
+      <h2 class="stitle">Analytics Plans for <span>Every Stage</span></h2>
+      <p class="sdesc">Whether you're just starting with data or scaling an analytics workflow — pick the plan that fits where you are right now.</p>
+    </div>
+    <div class="plans-grid" style="margin-top:52px;">
+
+      <!-- BASIC -->
+      <div class="plan-card reveal">
+        <span class="plan-badge starter">Starter</span>
+        <h3>Basic</h3>
+        <p class="plan-tagline">Perfect for a first analytics project</p>
+        <div class="plan-price">
+          <span class="currency">₹</span>
+          <span class="amount">4,999</span>
+          <span class="period">/ project</span>
+        </div>
+        <ul class="plan-features">
+          <li>Data cleaning &amp; formatting</li>
+          <li>Summary statistics report</li>
+          <li>Basic charts &amp; visuals (5 charts)</li>
+          <li>PDF deliverable</li>
+          <li>1 revision round</li>
+          <li>Delivery within 5 days</li>
+        </ul>
+        <button class="plan-btn outline" onclick="handlePlan('Basic')">Get Started</button>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="plan-card popular reveal">
+        <span class="plan-badge popular-badge">Most Popular</span>
+        <h3>Standard</h3>
+        <p class="plan-tagline">For growing businesses</p>
+        <div class="plan-price">
+          <span class="currency">₹</span>
+          <span class="amount">11,999</span>
+          <span class="period">/ project</span>
+        </div>
+        <ul class="plan-features">
+          <li>Full exploratory data analysis</li>
+          <li>Business insights &amp; recommendations</li>
+          <li>5–10 professional visualizations</li>
+          <li>PDF + Excel report</li>
+          <li>1 revision round</li>
+          <li>Delivery within 7 days</li>
+        </ul>
+        <button class="plan-btn primary" onclick="handlePlan('Standard')">Get Started</button>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="plan-card reveal">
+        <span class="plan-badge premium">Premium</span>
+        <h3>Premium</h3>
+        <p class="plan-tagline">Full-service analytics solution</p>
+        <div class="plan-price">
+          <span class="currency">₹</span>
+          <span class="amount">24,999</span>
+          <span class="period">/ project</span>
+        </div>
+        <ul class="plan-features">
+          <li>Data cleaning + advanced EDA</li>
+          <li>Interactive Power BI dashboard</li>
+          <li>Business recommendations deck</li>
+          <li>Presentation-ready report</li>
+          <li>2 revision rounds + support</li>
+          <li>Delivery within 10 days</li>
+        </ul>
+        <button class="plan-btn outline" onclick="handlePlan('Premium')">Get Started</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PLATINUM — ML DATA PREP -->
+<section id="platinum">
+  <div class="plat-wrap">
+    <div class="plat-card reveal">
+      <div class="plat-glow"></div>
+      <div>
+        <div class="plat-badge">🏅 Platinum</div>
+        <h3>ML Data Prep</h3>
+        <p class="plat-tag">For teams building machine learning models</p>
+        <p>We handle every data science step before model training — so your ML team gets a clean, fully prepared dataset, ready to plug into any framework.</p>
+        <a href="index.html#contact" class="plat-btn">Enquire Now →</a>
+      </div>
+      <div>
+        <ul class="plat-features">
+          <li>Complete data preprocessing pipeline</li>
+          <li>Advanced feature engineering</li>
+          <li>Label &amp; One-Hot encoding</li>
+          <li>Scaling and normalisation</li>
+          <li>Full EDA before modelling</li>
+          <li>Stratified train/test split</li>
+          <li>End-to-end sklearn pipeline</li>
+          <li>Correlation &amp; class balance checks</li>
+          <li>Dedicated delivery within 7–10 days</li>
+          <li>Full documentation included</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare">
+  <div class="compare-wrap">
+    <div class="sh-ctr reveal">
+      <div class="slbl">Side-by-Side</div>
+      <h2 class="stitle">Compare All <span>Plans</span></h2>
+      <p class="sdesc">Not sure which plan is right for you? Here's a detailed breakdown of what's included in each.</p>
+    </div>
+    <table class="compare-table reveal">
+      <thead>
+        <tr>
+          <th style="width:32%;">Feature</th>
+          <th>Basic</th>
+          <th class="pop">Standard</th>
+          <th>Premium</th>
+          <th>ML Data Prep</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Data Cleaning &amp; Formatting</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>Summary Statistics Report</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>Data Visualizations</td><td>Basic (5)</td><td>5–10 Pro</td><td>Unlimited</td><td><span class="cross">—</span></td></tr>
+        <tr><td>Full Exploratory Analysis</td><td><span class="cross">—</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>Business Insights &amp; Recommendations</td><td><span class="cross">—</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="cross">—</span></td></tr>
+        <tr><td>Power BI Dashboard</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✔</span></td><td><span class="cross">—</span></td></tr>
+        <tr><td>Presentation-Ready Report</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✔</span></td><td><span class="cross">—</span></td></tr>
+        <tr><td>Feature Engineering</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>Sklearn Pipeline</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>Train/Test Split</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>Revision Rounds</td><td>1</td><td>1</td><td>2</td><td>Unlimited</td></tr>
+        <tr><td>Delivery Time</td><td>5 days</td><td>7 days</td><td>10 days</td><td>7–10 days</td></tr>
+        <tr><td>Price</td><td>₹4,999</td><td class="td-orange">₹11,999</td><td>₹24,999</td><td>Custom</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="ctr">
+    <div class="sh-ctr reveal">
+      <div class="slbl">FAQ</div>
+      <h2 class="stitle">Common <span>Questions</span></h2>
+      <p class="sdesc">Everything you need to know before getting started.</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">What formats do you accept for data? <span class="faq-ico">+</span></div>
+        <div class="faq-a">We accept CSV, Excel (.xlsx/.xls), Google Sheets (shared link), JSON, and SQL database exports. If you have a different format, just reach out — we likely can work with it.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">How does the process work after I choose a plan? <span class="faq-ico">+</span></div>
+        <div class="faq-a">After you get in touch, we'll have a quick 15-minute call to understand your data and goals. We'll then send a project brief for your approval before starting work. You'll receive updates at key milestones.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Is my data kept confidential? <span class="faq-ico">+</span></div>
+        <div class="faq-a">Absolutely. Every project is covered by a strict NDA. Your data is never shared, repurposed, or stored beyond the project. We take data privacy very seriously.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I request a custom plan not listed here? <span class="faq-ico">+</span></div>
+        <div class="faq-a">Yes — the packages above are starting points. If your project needs something specific (e.g., ongoing monthly analytics, API integration, or a bespoke dashboard), just contact us and we'll scope a custom plan.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">What if I need changes after delivery? <span class="faq-ico">+</span></div>
+        <div class="faq-a">Each plan includes revision rounds (1–2 depending on tier). Revisions cover scope adjustments within the original brief. Additional revisions or scope changes can be quoted separately.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you offer discounts for ongoing work? <span class="faq-ico">+</span></div>
+        <div class="faq-a">Yes! Clients who commit to monthly or quarterly analytics work receive preferred pricing and priority turnaround. Reach out to discuss a retainer arrangement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-ban reveal">
+  <div>
+    <h3>Not Sure Which Plan to Choose?</h3>
+    <p>Tell us about your data challenge and we'll recommend the right plan — no commitment required.</p>
+  </div>
+  <a href="index.html#contact" class="btn-wh">Get a Free Recommendation →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand-logo">
+        <div class="ft-brand-text">
+          <span class="ft-logo-name">Alpha<span>Analytics</span></span>
+          <span class="ft-logo-tag">Data Driven Solutions</span>
+        </div>
+      </div>
+      <p class="ft-brand-desc">Freelance data analytics team helping businesses improve decisions with reliable, fast data workflows — from cleaning to dashboards and ML pipelines.</p>
+      <div class="ft-contact-items">
+        <div class="ft-ci"><div class="ft-ci-icon">✉️</div><a href="mailto:alphaanalyticssolutions@gmail.com">alphaanalyticssolutions@gmail.com</a></div>
+        <div class="ft-ci"><div class="ft-ci-icon">📍</div><span>Based in India — Serving clients worldwide</span></div>
+      </div>
+    </div>
+    <div class="ft-col"><h5>Services</h5><ul>
+      <li><a href="index.html#services">Data Cleaning</a></li>
+      <li><a href="index.html#services">EDA Reports</a></li>
+      <li><a href="index.html#services">Power BI Dashboards</a></li>
+      <li><a href="index.html#services">SQL Data Work</a></li>
+      <li><a href="index.html#services">Excel Automation</a></li>
+      <li><a href="index.html#services">ML Data Prep</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Company</h5><ul>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#case-studies">Case Studies</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+      <li><a href="career.html">Careers</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="freelancing.html">Freelancing</a></li>
+      <li><a href="index.html#industries">Industries</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Resources</h5><ul>
+      <li><a href="index.html#contact">Get a Quote</a></li>
+      <li><a href="mailto:alphaanalyticssolutions@gmail.com">Email Us</a></li>
+      <li><a href="packages.html">Packages &amp; Pricing</a></li>
+      <li><a href="index.html#insights">Insights &amp; Blog</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <div class="ft-follow"><h5>Follow Us</h5>
+      <div class="ft-soc">
+        <a href="#" class="fsl" title="LinkedIn">in</a>
+        <a href="mailto:alphaanalyticssolutions@gmail.com" class="fsl" title="Email">✉</a>
+        <a href="https://www.instagram.com/alphaanalyticsteam/" class="fsl" target="_blank" rel="noopener" title="Instagram">ig</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2025 AlphaAnalytics. All rights reserved.</p>
+    <div class="ft-bot-links">
+      <a href="#">Privacy Policy</a>
+      <a href="mailto:alphaanalyticssolutions@gmail.com">Contact</a>
+      <a href="career.html">Careers</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openMob(){document.getElementById('mobNav').classList.add('open');}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');}
+
+const _rev=document.querySelectorAll('.reveal');
+const _obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');_obs.unobserve(x.target);}});},{threshold:.1});
+_rev.forEach(el=>_obs.observe(el));
+
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+function handlePlan(plan){
+  const email='alphaanalyticssolutions@gmail.com';
+  const subject=encodeURIComponent('Enquiry: '+plan+' Plan | AlphaAnalytics');
+  const body=encodeURIComponent("Hi AlphaAnalytics,\n\nI'm interested in the "+plan+" plan.\n\nPlease let me know the next steps.\n\nThanks!");
+  window.location.href='mailto:'+email+'?subject='+subject+'&body='+body;
+}
+</script>
+</body>
+</html>

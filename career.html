@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#F97316"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<title>Careers | AlphaAnalytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --orange: #F97316;
+  --orange-light: #FED7AA;
+  --orange-bg: #FFF7ED;
+  --dark: #111827;
+  --dark2: #1F2937;
+  --text: #374151;
+  --muted: #6B7280;
+  --light: #F9FAFB;
+  --white: #ffffff;
+  --border: #E5E7EB;
+  --border2: #F3F4F6;
+  --purple: #7C3AED;
+  --purple-bg: #EDE9FE;
+  --blue: #3B82F6;
+  --blue-bg: #EFF6FF;
+  --green: #10B981;
+  --green-bg: #ECFDF5;
+  --yellow: #F59E0B;
+  --yellow-bg: #FFFBEB;
+  --pink: #EF4444;
+  --pink-bg: #FEF2F2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--light);}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:4px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 4%;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+/* logo-img replaced by logo-img-wrap */
+/* logo-text-wrap removed */
+
+
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+.nav-links a{color:var(--text);text-decoration:none;font-size:13.5px;font-weight:500;padding:6px 11px;border-radius:6px;transition:all .2s;display:flex;align-items:center;gap:3px;white-space:nowrap;}
+.nav-links a:hover{background:var(--light);color:var(--dark);}
+.nav-links a.active{color:var(--orange);font-weight:600;}
+.nav-links .au::after{content:'';position:absolute;bottom:-2px;left:11px;right:11px;height:2px;background:var(--orange);border-radius:2px;}
+.nav-links a{position:relative;}
+.chevron{font-size:9px;color:var(--muted);}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.btn-careers-nav{display:flex;align-items:center;gap:6px;border:1.5px solid var(--orange);color:var(--orange);padding:8px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-careers-nav:hover{background:var(--orange-bg);}
+.btn-contact-nav{display:flex;align-items:center;gap:6px;background:var(--orange);color:var(--dark);padding:9px 18px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-contact-nav:hover{background:#EA6C0A;transform:translateY(-1px);box-shadow:0 4px 16px rgba(249,115,22,.35);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;}
+
+/* HERO */
+#home{min-height:100vh;padding:100px 4% 70px;background:linear-gradient(135deg,#fff 0%,#FFF7ED 55%,#FEF3E8 100%);display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-blob{position:absolute;top:-120px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(249,115,22,.07) 0%,transparent 70%);pointer-events:none;}
+.hero-blob2{position:absolute;bottom:-100px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(249,115,22,.04) 0%,transparent 70%);pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;max-width:1280px;margin:0 auto;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:30px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--orange);margin-bottom:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);animation:fadeUp .5s ease both;}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+h1{font-size:clamp(38px,5vw,70px);font-weight:900;line-height:1.04;color:var(--dark);letter-spacing:-2.5px;margin-bottom:24px;animation:fadeUp .5s .1s ease both;}
+h1 .hi{color:var(--orange);}
+.hero-desc{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:480px;animation:fadeUp .5s .2s ease both;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .5s .3s ease both;}
+.btn-pri{background:var(--orange);color:var(--dark);padding:14px 28px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;box-shadow:0 0 28px rgba(201,168,76,.18),inset 0 1px 0 rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:8px;}
+.btn-pri:hover{background:#EA6C0A;transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.3);}
+.btn-out{background:#fff;color:var(--dark);border:1.5px solid var(--border);padding:14px 28px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-out:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-bg);}
+.hero-trust{display:flex;align-items:center;gap:12px;margin-top:36px;animation:fadeUp .5s .4s ease both;}
+.trust-avs{display:flex;}
+.trust-avs span{width:34px;height:34px;border-radius:50%;border:2.5px solid #fff;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:var(--dark);margin-left:-8px;}
+.trust-avs span:first-child{margin-left:0;}
+.trust-avs span:nth-child(2){background:#3B82F6;}
+.trust-avs span:nth-child(3){background:#10B981;}
+.trust-avs span:nth-child(4){background:#7C3AED;}
+.trust-text strong{display:block;font-size:13px;font-weight:700;color:var(--dark);}
+.trust-text small{color:var(--muted);font-size:12px;}
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;animation:fadeUp .5s .15s ease both;}
+.hcard{background:#fff;border-radius:18px;padding:28px 22px;box-shadow:0 4px 24px rgba(0,0,0,.07);border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .3s;}
+.hcard:hover{transform:translateY(-4px);}
+.hcard-bar{position:absolute;top:0;left:0;right:0;height:3px;border-radius:18px 18px 0 0;}
+.hcard.bl .hcard-bar{background:#3B82F6;}
+.hcard.gr .hcard-bar{background:#10B981;}
+.hcard.pu .hcard-bar{background:#7C3AED;}
+.hcard.or .hcard-bar{background:var(--orange);}
+.hcard-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.hcard.bl .hcard-icon{background:#EFF6FF;color:#3B82F6;}
+.hcard.gr .hcard-icon{background:#ECFDF5;color:#10B981;}
+.hcard.pu .hcard-icon{background:#EDE9FE;color:#7C3AED;}
+.hcard.or .hcard-icon{background:var(--orange-bg);color:var(--orange);}
+.hcard-num{font-size:36px;font-weight:900;color:var(--dark);letter-spacing:-1px;line-height:1;}
+.hcard-lbl{font-size:13px;color:var(--muted);margin-top:6px;font-weight:500;}
+.hcard-ghost{position:absolute;bottom:-10px;right:-10px;font-size:70px;opacity:.04;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* CLIENTS */
+#clients{padding:36px 4%;background:#fff;border-bottom:1px solid var(--border2);overflow:hidden;}
+.cl-label{text-align:center;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:26px;}
+.mq-wrap{overflow:hidden;}
+.mq-track{display:flex;gap:60px;animation:mq 22s linear infinite;width:max-content;}
+.cl-logo{display:flex;align-items:center;gap:9px;opacity:.45;transition:opacity .3s;white-space:nowrap;}
+.cl-logo:hover{opacity:1;}
+.cl-logo .cli{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:var(--light);color:var(--dark);}
+.cl-logo span{font-size:14px;font-weight:700;color:var(--dark2);letter-spacing:-.2px;}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%)}}
+
+/* COMMONS */
+section{padding:88px 4%;}
+.ctr{max-width:1280px;margin:0 auto;}
+.slbl{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.stitle{font-size:clamp(26px,3.5vw,44px);font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:14px;}
+.stitle span{color:var(--orange);}
+.sdesc{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;}
+.sh-ctr{text-align:center;}
+.sh-ctr .sdesc{margin:0 auto;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s;}.reveal.visible{opacity:1;transform:none;}
+
+/* SERVICES */
+#services{background:var(--light);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;}
+.sc{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s;cursor:default;}
+.sc:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+.sc-top{height:96px;display:flex;align-items:flex-end;padding:20px 26px;}
+.sc-ico{width:50px;height:50px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.sc-ico.pu{color:var(--purple);}
+.sc-ico.bl{color:var(--blue);}
+.sc-ico.yl{color:var(--yellow);}
+.sc-ico.gr{color:var(--green);}
+.sc-ico.or{color:var(--orange);}
+.sc-ico.pk{color:var(--pink);}
+.sc.pu .sc-top{background:var(--purple-bg);}
+.sc.bl .sc-top{background:var(--blue-bg);}
+.sc.yl .sc-top{background:var(--yellow-bg);}
+.sc.gr .sc-top{background:var(--green-bg);}
+.sc.or .sc-top{background:var(--orange-bg);}
+.sc.pk .sc-top{background:var(--pink-bg);}
+.sc-body{padding:22px 26px 26px;}
+.sc-body h3{font-size:17px;font-weight:800;color:var(--dark);margin-bottom:10px;letter-spacing:-.3px;}
+.sc-body p{font-size:13.5px;color:var(--muted);line-height:1.65;}
+.sc-link{display:inline-flex;align-items:center;gap:5px;color:var(--orange);font-weight:700;font-size:13.5px;margin-top:16px;text-decoration:none;transition:gap .2s;}
+.sc-link:hover{gap:9px;}
+
+/* ABOUT */
+#about{background:#fff;}
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ab-vis{position:relative;}
+.ab-img{width:100%;aspect-ratio:4/3;border-radius:20px;background:linear-gradient(135deg,#FFF7ED,#FED7AA);display:flex;align-items:center;justify-content:center;font-size:88px;border:1px solid var(--border);position:relative;}
+.ab-b1{position:absolute;top:-14px;left:-14px;background:var(--orange);color:var(--dark);border-radius:12px;padding:14px 18px;box-shadow:0 8px 24px rgba(249,115,22,.35);}
+.ab-b1 strong{display:block;font-size:22px;font-weight:900;}
+.ab-b1 span{font-size:10px;opacity:.85;letter-spacing:.5px;}
+.ab-b2{position:absolute;bottom:-14px;right:-14px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px 18px;box-shadow:0 8px 30px rgba(0,0,0,.1);display:flex;align-items:center;gap:12px;}
+.ab-b2 strong{display:block;font-size:22px;font-weight:900;color:var(--dark);}
+.ab-b2 span{font-size:12px;color:var(--muted);}
+.ab-vals{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:24px;}
+.av{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:15px;display:flex;align-items:flex-start;gap:11px;}
+.av-i{font-size:19px;flex-shrink:0;}
+.av h5{font-size:13.5px;font-weight:700;color:var(--dark);margin-bottom:2px;}
+.av p{font-size:12px;color:var(--muted);}
+
+/* INDUSTRIES */
+#industries{background:var(--light);}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
+.ic{background:#fff;border-radius:14px;padding:26px 20px;border:1px solid var(--border);transition:all .3s;text-align:center;}
+.ic:hover{transform:translateY(-5px);border-color:var(--orange);box-shadow:0 12px 36px rgba(249,115,22,.12);}
+.ic-ico{font-size:34px;margin-bottom:12px;}
+.ic h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.ic p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+/* CASE STUDIES */
+#case-studies{background:#fff;}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;}
+.csc{border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s;background:#fff;}
+.csc:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+.cs-th{height:175px;display:flex;align-items:center;justify-content:center;font-size:58px;position:relative;}
+.cs-tg{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.9);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--dark);}
+.cs-bd{padding:20px 22px;}
+.cs-bd h4{font-size:16px;font-weight:800;color:var(--dark);margin-bottom:8px;letter-spacing:-.3px;}
+.cs-bd p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+.cs-mt{display:flex;gap:16px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border2);}
+.cs-mt div span{font-size:11px;color:var(--muted);}
+.cs-mt div strong{display:block;font-size:13px;font-weight:700;color:var(--orange);}
+
+/* REVIEWS */
+#reviews{background:var(--light);}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;}
+.rvc{background:#fff;border-radius:16px;padding:28px 24px;border:1px solid var(--border);transition:all .3s;}
+.rvc:hover{box-shadow:0 12px 36px rgba(0,0,0,.08);transform:translateY(-4px);}
+.rv-stars{color:#F59E0B;font-size:13px;letter-spacing:2px;margin-bottom:12px;}
+.rvc p{font-size:13.5px;color:var(--text);line-height:1.75;font-style:italic;}
+.rv-auth{display:flex;align-items:center;gap:12px;margin-top:20px;}
+.rv-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--dark);flex-shrink:0;}
+.rv-ai h5{font-size:14px;font-weight:700;color:var(--dark);}
+.rv-ai span{font-size:12px;color:var(--orange);}
+
+/* INSIGHTS */
+#insights{background:#fff;}
+.bg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;}
+.bgc{border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s;}
+.bgc:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+.bg-th{height:155px;display:flex;align-items:center;justify-content:center;font-size:50px;}
+.bg-bd{padding:20px 20px 24px;}
+.bg-mt{display:flex;align-items:center;gap:10px;margin-bottom:11px;}
+.bg-cat{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;background:var(--orange-bg);padding:3px 10px;border-radius:20px;}
+.bg-dt{font-size:11px;color:var(--muted);}
+.bg-bd h4{font-size:15px;font-weight:800;color:var(--dark);margin-bottom:7px;line-height:1.35;letter-spacing:-.2px;}
+.bg-bd p{font-size:13px;color:var(--muted);line-height:1.65;}
+.bg-rd{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:13px;font-weight:700;color:var(--orange);text-decoration:none;}
+
+/* CONTACT */
+#contact{background:var(--light);}
+.ct-wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start;}
+.ct-l h3{font-size:30px;font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:12px;}
+.ct-l p{color:var(--muted);line-height:1.7;margin-bottom:28px;font-size:14px;}
+.ct-items{display:flex;flex-direction:column;gap:16px;}
+.ct-it{display:flex;align-items:flex-start;gap:13px;}
+.ct-ico{width:42px;height:42px;border-radius:11px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.ct-it-t label{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;}
+.ct-it-t a,.ct-it-t p{font-size:14px;color:var(--dark);text-decoration:none;font-weight:500;}
+.ct-form{background:#fff;border-radius:20px;padding:34px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.06);}
+.cf-ttl{font-size:19px;font-weight:800;color:var(--dark);margin-bottom:22px;letter-spacing:-.3px;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--light);border:1.5px solid var(--border);border-radius:9px;padding:11px 13px;color:var(--dark);font-family:'Inter',sans-serif;font-size:13.5px;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--orange);background:#fff;}
+.fg textarea{resize:vertical;min-height:105px;}
+.sub-btn{width:100%;background:var(--orange);color:var(--dark);padding:14px;border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s;}
+.sub-btn:hover{background:#EA6C0A;transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.4);}
+
+/* CAREERS */
+#careers{background:#fff;}
+.car-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:20px;}
+.jobs-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.jc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;gap:14px;}
+.jc:hover{border-color:var(--orange);box-shadow:0 8px 28px rgba(249,115,22,.12);transform:translateY(-3px);}
+.ji h4{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:7px;}
+.jtags{display:flex;gap:7px;flex-wrap:wrap;}
+.jt{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;}
+.jt.d{background:var(--blue-bg);color:var(--blue);}
+.jt.t{background:var(--green-bg);color:var(--green);}
+.jt.l{background:var(--purple-bg);color:var(--purple);}
+.aply{background:var(--orange-bg);color:var(--orange);border:1.5px solid var(--orange-light);padding:10px 18px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:all .25s;white-space:nowrap;}
+.aply:hover{background:var(--orange);color:var(--dark);}
+
+/* CTA */
+.cta-ban{background:linear-gradient(135deg,var(--orange),#EA580C);border-radius:20px;margin:0 4% 80px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:30px;box-shadow:0 20px 60px rgba(249,115,22,.3);}
+.cta-ban h3{font-size:30px;font-weight:900;color:var(--dark);letter-spacing:-.5px;max-width:480px;line-height:1.2;}
+.cta-ban p{color:rgba(255,255,255,.8);margin-top:8px;font-size:14px;}
+.btn-wh{background:#fff;color:var(--orange);padding:13px 28px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:all .25s;white-space:nowrap;}
+.btn-wh:hover{background:#FFF7ED;transform:translateY(-2px);}
+
+
+
+/* Logo image nav */
+.logo-img-wrap{height:46px;width:115px;display:flex;align-items:center;}
+.logo-img-wrap img{height:46px;width:115px;display:block;object-fit:contain;}
+.btn-careers-nav{display:flex;align-items:center;gap:6px;border:1.5px solid var(--orange);color:var(--orange);padding:8px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-careers-nav:hover{background:var(--orange-bg);}
+.btn-contact-nav{display:flex;align-items:center;gap:6px;background:var(--orange);color:#fff;padding:9px 18px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-contact-nav:hover{background:#EA6C0A;transform:translateY(-1px);}
+/* Footer logo image */
+.ft-brand-logo{margin-bottom:18px;}
+
+/* Footer styles */
+footer{background:#181410;color:#E5E7EB;padding:64px 4% 0;}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07);}
+.ft-brand-desc{color:#9CA3AF;font-size:13.5px;line-height:1.7;max-width:280px;margin-bottom:18px;}
+.ft-contact-items{display:flex;flex-direction:column;gap:10px;}
+.ft-ci{display:flex;align-items:center;gap:11px;}
+.ft-ci-icon{width:34px;height:34px;background:#2a1f0f;border:1px solid rgba(249,115,22,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:var(--orange);}
+.ft-ci a,.ft-ci span{color:#9CA3AF;font-size:13.5px;text-decoration:none;transition:color .2s;}
+.ft-ci a:hover{color:var(--orange);}
+.ft-col h5{font-size:15px;font-weight:700;color:#fff;margin-bottom:14px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.ft-col ul li a{color:#9CA3AF;text-decoration:none;font-size:13.5px;transition:color .2s;}
+.ft-col ul li a:hover{color:var(--orange);}
+.ft-follow{margin-top:22px;}
+.ft-follow h5{font-size:15px;font-weight:700;color:#fff;margin-bottom:11px;}
+.ft-soc{display:flex;gap:9px;}
+.fsl{width:38px;height:38px;border-radius:9px;background:#2a1f0f;border:1px solid rgba(249,115,22,.2);display:flex;align-items:center;justify-content:center;font-size:14px;color:#9CA3AF;text-decoration:none;transition:all .25s;}
+.fsl:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+.ft-bot{padding:18px 0 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.ft-bot p,.ft-bot a{color:#6B7280;font-size:13px;text-decoration:none;transition:color .2s;}
+.ft-bot a:hover{color:var(--orange);}
+.ft-bot-links{display:flex;gap:18px;}
+@media(max-width:1024px){.ft-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.ft-grid{grid-template-columns:1fr;}.nav-links{display:none;}.hamburger{display:flex;}}
+
+
+/* Careers-specific */
+section{padding:88px 4%;}
+h1,h2,h3,h4,h5{color:var(--dark);}
+.careers-hero{padding:120px 4% 80px;background:linear-gradient(135deg,#fff 0%,#FFF7ED 55%,#FEF3E8 100%);position:relative;overflow:hidden;}
+.ch-blob{position:absolute;top:-80px;right:-120px;width:600px;height:600px;background:radial-gradient(circle,rgba(249,115,22,.07) 0%,transparent 70%);pointer-events:none;}
+.ch-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.ch-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:30px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--orange);margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+.ch-title{font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.05;color:var(--dark);letter-spacing:-2px;margin-bottom:20px;}
+.ch-title span{color:var(--orange);}
+.ch-desc{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:32px;max-width:480px;}
+.ch-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:1px solid rgba(249,115,22,.2);border-radius:30px;font-size:13px;font-weight:600;color:var(--orange);background:var(--orange-bg);}
+.ch-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.ch-right{display:flex;flex-direction:column;gap:14px;}
+.ch-perk{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.ch-perk:hover{border-color:var(--orange);transform:translateX(4px);}
+.ch-perk-ico{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.ch-perk h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;}
+.ch-perk p{font-size:12.5px;color:var(--muted);line-height:1.5;}
+/* Stats bar */
+.stats-bar{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1280px;margin:0 auto;padding:0 4%;}
+.stat{padding:36px 20px;text-align:center;position:relative;}
+.stat+.stat::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--border);}
+.stat-n{font-size:36px;font-weight:900;color:var(--orange);letter-spacing:-1px;margin-bottom:6px;}
+.stat-l{font-size:13px;color:var(--muted);font-weight:500;}
+/* Roles */
+#roles{background:var(--light);}
+.roles-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:20px;}
+.filter-bar{display:flex;gap:9px;flex-wrap:wrap;}
+.fb{background:#fff;border:1.5px solid var(--border);color:var(--muted);padding:8px 18px;border-radius:30px;font-size:13px;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;font-weight:500;}
+.fb.active,.fb:hover{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:600;}
+.dept-group{margin-bottom:32px;}
+.dept-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border2);}
+.dept-head h3{font-size:14px;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.5px;}
+.dept-count{background:var(--orange-bg);color:var(--orange);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.role-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:all .3s;margin-bottom:10px;cursor:pointer;}
+.role-card:hover,.role-card.expanded{border-color:var(--orange);box-shadow:0 6px 24px rgba(249,115,22,.1);transform:translateY(-2px);}
+.role-card.expanded{transform:none;border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-color:transparent;}
+.role-info h4{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:7px;}
+.role-tags{display:flex;gap:7px;flex-wrap:wrap;}
+.rtag{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;}
+.rtag.dept{background:#EFF6FF;color:#3B82F6;}
+.rtag.type{background:#ECFDF5;color:#10B981;}
+.rtag.loc{background:#EDE9FE;color:#7C3AED;}
+.rtag.hot{background:#FFF7ED;color:var(--orange);}
+.role-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.role-apply{background:var(--orange-bg);color:var(--orange);border:1.5px solid var(--orange-light);padding:10px 20px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:all .25s;white-space:nowrap;}
+.role-apply:hover{background:var(--orange);color:#fff;}
+.expand-btn{width:32px;height:32px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted);transition:all .2s;font-family:'Inter',sans-serif;line-height:1;}
+.expand-btn:hover,.expand-btn.open{border-color:var(--orange);color:var(--orange);}
+.role-detail{background:var(--light);border:1.5px solid var(--orange);border-top:none;border-radius:0 0 14px 14px;padding:26px;display:none;}
+.role-detail.open{display:block;}
+.rd-grid{display:grid;grid-template-columns:2fr 1fr;gap:40px;}
+.rd-sec{margin-bottom:20px;}
+.rd-sec h5{font-size:12px;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.rd-sec ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.rd-sec ul li{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;color:var(--text);line-height:1.5;}
+.rd-sec ul li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0;}
+.rd-meta{display:flex;flex-direction:column;gap:12px;}
+.rd-meta-item label{display:block;font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+.rd-meta-item span{font-size:13.5px;font-weight:600;color:var(--dark);}
+.rd-apply-btn{width:100%;background:var(--orange);color:#fff;border:none;padding:13px;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;margin-top:14px;transition:all .25s;}
+.rd-apply-btn:hover{background:#EA6C0A;}
+/* Perks */
+#perks{background:#fff;}
+.perks-box{background:var(--light);border:1px solid var(--border);border-radius:20px;padding:56px;position:relative;overflow:hidden;}
+.perks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px;}
+.perk{display:flex;flex-direction:column;gap:10px;}
+.perk-ico{width:50px;height:50px;border-radius:14px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.perk:hover .perk-ico{border-color:var(--orange);transform:scale(1.08);}
+.perk h4{font-size:16px;font-weight:700;color:var(--dark);}
+.perk p{font-size:13.5px;color:var(--muted);line-height:1.65;}
+/* Process */
+#how{background:var(--light);}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;position:relative;}
+.how-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+.how-step{text-align:center;padding:0 18px;position:relative;z-index:1;}
+.how-num{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:18px;font-weight:900;color:var(--orange);box-shadow:0 4px 14px rgba(249,115,22,.15);}
+.how-step h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:7px;}
+.how-step p{font-size:13px;color:var(--muted);line-height:1.6;}
+/* Values */
+#values{background:#fff;}
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px;}
+.val-card{background:var(--light);border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;align-items:flex-start;gap:16px;transition:all .3s;}
+.val-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 10px 28px rgba(249,115,22,.08);}
+.val-ico{width:46px;height:46px;border-radius:12px;background:var(--orange-bg);border:1px solid var(--orange-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.val-card h5{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:7px;}
+.val-card p{font-size:13.5px;color:var(--muted);line-height:1.65;}
+/* Voices */
+#voices{background:var(--light);}
+.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.voice-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .3s;}
+.voice-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.07);transform:translateY(-4px);}
+.voice-stars{color:#F59E0B;font-size:13px;letter-spacing:2px;margin-bottom:11px;}
+.voice-card p{font-size:13.5px;color:var(--text);line-height:1.75;font-style:italic;}
+.voice-auth{display:flex;align-items:center;gap:12px;margin-top:16px;}
+.voice-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff;flex-shrink:0;}
+.voice-auth h5{font-size:14px;font-weight:700;color:var(--dark);}
+.voice-auth span{font-size:12px;color:var(--orange);}
+/* Apply */
+#apply{background:#fff;}
+.apply-wrap{max-width:1080px;margin:0 auto;background:linear-gradient(135deg,var(--orange-bg),#fff 50%,var(--orange-bg));border:1px solid var(--orange-light);border-radius:20px;padding:56px;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;position:relative;overflow:hidden;}
+.apply-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);}
+.apply-left-tag{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.apply-left h3{font-size:28px;font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:12px;line-height:1.2;}
+.apply-left p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px;}
+.apply-email-box{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;border:1px solid var(--border);border-radius:10px;margin-bottom:14px;}
+.apply-email-ico{width:32px;height:32px;border-radius:8px;background:var(--orange-bg);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.apply-email-box a{font-size:13.5px;color:var(--orange);font-weight:600;text-decoration:none;}
+.apply-open{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#ECFDF5;border:1px solid #D1FAE5;border-radius:10px;}
+.apply-open-dot{width:8px;height:8px;border-radius:50%;background:#10B981;flex-shrink:0;}
+.apply-open p{font-size:13px;color:#065F46;}
+.apply-open strong{color:#10B981;}
+.fg{margin-bottom:13px;}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--light);border:1.5px solid var(--border);border-radius:9px;padding:11px 13px;color:var(--dark);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--orange);background:#fff;}
+.fg textarea{resize:vertical;min-height:100px;}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.file-zone{border:2px dashed var(--border);border-radius:9px;padding:18px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;}
+.file-zone:hover{border-color:var(--orange);background:var(--orange-bg);}
+.file-zone p{font-size:13px;color:var(--muted);}
+.file-zone span{font-size:12px;color:var(--orange);font-weight:600;}
+.submit-btn{width:100%;background:var(--orange);color:#fff;padding:14px;border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.submit-btn:hover{background:#EA6C0A;transform:translateY(-1px);}
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:20px;padding:34px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
+.modal-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);}
+.modal-close:hover{border-color:var(--orange);color:var(--orange);}
+.modal h3{font-size:20px;font-weight:800;color:var(--dark);margin-bottom:4px;}
+.modal-role{font-size:13px;color:var(--orange);font-weight:600;margin-bottom:18px;}
+/* no-roles */
+#no-roles{display:none;text-align:center;padding:56px 0;}
+
+/* ── CROSS-PLATFORM MOBILE OPTIMIZATION ── */
+@supports(padding:max(0px)){
+  nav{padding-left:max(4%,env(safe-area-inset-left));padding-right:max(4%,env(safe-area-inset-right));}
+  body{padding-bottom:env(safe-area-inset-bottom);}
+}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-overflow-scrolling:touch;}
+input,textarea,select{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+a,button{touch-action:manipulation;}
+
+@media(max-width:1024px){
+  .ch-inner{gap:40px;}
+  .perks-grid{grid-template-columns:1fr 1fr;}
+  .how-steps{grid-template-columns:1fr 1fr;}
+  .how-steps::before{display:none;}
+  .apply-wrap{grid-template-columns:1fr;gap:36px;padding:36px;}
+  .rd-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .ft-grid{grid-template-columns:1fr 1fr;}
+  .btn-careers-nav{display:none;}
+  .cta-ban{padding:40px 32px;}
+}
+@media(max-width:768px){
+  nav{padding:0 16px;height:60px;gap:10px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .btn-careers-nav{display:none;}
+  .logo-img-wrap{height:38px;width:95px;}
+  .logo-img-wrap img{height:38px;width:95px;}
+  .btn-contact-nav{padding:8px 13px;font-size:12px;}
+
+  .careers-hero{padding:90px 16px 56px;}
+  .ch-inner{grid-template-columns:1fr;gap:28px;}
+  .ch-title{font-size:clamp(28px,9vw,48px);letter-spacing:-1px;}
+  .ch-desc{font-size:14px;max-width:100%;}
+  .ch-btns{flex-direction:column;}
+  .ch-btns a,.ch-btns button{width:100%;justify-content:center;}
+  .ch-chips{gap:7px;}
+
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .stat+.stat::before{display:none;}
+  .stat{padding:24px 12px;}
+  .stat-n{font-size:28px;}
+
+  section{padding:56px 16px;}
+  .stitle{font-size:clamp(22px,7vw,34px);}
+  .sdesc{font-size:14px;}
+
+  #roles{padding:56px 16px;}
+  .roles-header{flex-direction:column;align-items:flex-start;}
+  .filter-bar{gap:7px;}
+  .fb{font-size:12px;padding:7px 14px;}
+  .role-card{flex-direction:column;align-items:flex-start;padding:16px;}
+  .role-right{width:100%;justify-content:space-between;display:flex;align-items:center;}
+  .rd-grid{grid-template-columns:1fr;}
+  .rd-meta{grid-template-columns:1fr 1fr;}
+
+  .perks-grid{grid-template-columns:1fr;}
+  .values-grid,.voices-grid{grid-template-columns:1fr;}
+  .how-steps{grid-template-columns:1fr;}
+
+  .apply-wrap{grid-template-columns:1fr;gap:24px;padding:24px 16px;}
+  .f2{grid-template-columns:1fr;}
+  .file-zone{padding:20px 14px;}
+
+  .modal{padding:28px 20px;margin:16px;}
+  .f2{grid-template-columns:1fr;}
+
+  .cta-ban{flex-direction:column;text-align:center;padding:28px 16px;margin:0 16px 56px;}
+  .cta-ban h3{font-size:22px;}
+  .btn-wh{width:100%;justify-content:center;}
+
+  .ft-grid{grid-template-columns:1fr;}
+  .ft-bot{flex-direction:column;gap:8px;text-align:center;}
+  .ft-bot-links{gap:12px;flex-wrap:wrap;justify-content:center;}
+  footer{padding:40px 16px 0;}
+}
+@media(max-width:480px){
+  .ch-title{font-size:28px;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .rd-meta{grid-template-columns:1fr;}
+  .fg input,.fg textarea,.fg select{font-size:16px;}
+  .btn-pri,.btn-out,.aply,.submit-btn{width:100%;justify-content:center;}
+  .perks-box{padding:28px 16px!important;}
+  .cta-ban{margin:0 12px 48px;}
+}
+
+/* Footer brand text logo */
+.ft-brand-logo{margin-bottom:18px;}
+.ft-brand-text{display:inline-flex;flex-direction:column;line-height:1;}
+.ft-brand-text .ft-logo-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.ft-brand-text .ft-logo-name span{color:var(--orange);}
+.ft-brand-text .ft-logo-tag{font-size:9.5px;font-weight:700;color:rgba(254, 252, 251, 0.815);letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;}
+</style>
+</head>
+<body>
+
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="index.html#services" onclick="closeMob()">Services</a>
+  <a href="index.html#industries" onclick="closeMob()">Industries</a>
+  <a href="index.html#case-studies" onclick="closeMob()">Case Studies</a>
+  <a href="index.html#reviews" onclick="closeMob()">Reviews</a>
+  <a href="index.html#insights" onclick="closeMob()">Insights</a>
+  <a href="packages.html" onclick="closeMob()">Packages</a>
+  <a href="career.html" onclick="closeMob()">Careers</a>
+  <a href="freelancing.html" onclick="closeMob()">Freelancing</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+</div>
+<nav id="nb">
+  <a href="index.html" class="logo">
+    <div class="logo-img-wrap">
+      <img src="alpha_analytics_logo_1779024028668.png" alt="AlphaAnalytics"/>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services <span class="chevron">▾</span></a></li>
+    <li><a href="index.html#industries">Industries</a></li>
+    <li><a href="index.html#case-studies">Case Studies</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#insights">Insights</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="freelancing.html">Freelancing</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="career.html" class="btn-careers-nav">🧳 Careers</a>
+    <a href="index.html#contact" class="btn-contact-nav" style="color:#fff;">📞 Contact Us</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="careers-hero">
+  <div class="ch-blob"></div>
+  <div class="ch-inner">
+    <div>
+      <div class="ch-badge"><span class="bdot"></span> We're Hiring — Join Our Team</div>
+      <h1 class="ch-title">Shape the Future of<br/><span>Data Analytics</span></h1>
+      <p class="ch-desc">Join a team of passionate data professionals helping businesses across India and worldwide make better decisions through analytics. We're growing — and looking for people who love data as much as we do.</p>
+      <div class="ch-chips">
+        <div class="chip">📍 Remote-First</div>
+        <div class="chip">⏰ Flexible Hours</div>
+        <div class="chip">📈 High Impact</div>
+        <div class="chip">🌱 Growth Culture</div>
+      </div>
+      <div class="ch-btns">
+        <a href="#roles" class="btn-pri" onclick="document.getElementById('roles').scrollIntoView({behavior:'smooth'});return false;">View Open Roles →</a>
+        <a href="index.html" class="btn-out">Learn About Us</a>
+      </div>
+    </div>
+    <div class="ch-right">
+      <div class="ch-perk">
+        <div class="ch-perk-ico" style="background:#EFF6FF;color:#3B82F6;">🌍</div>
+        <div><h4>Fully Remote</h4><p>Work from anywhere. Remote-first team with flexible hours that respect your lifestyle.</p></div>
+      </div>
+      <div class="ch-perk">
+        <div class="ch-perk-ico" style="background:#ECFDF5;color:#10B981;">📈</div>
+        <div><h4>Skill Growth</h4><p>Real-world analytics challenges across diverse industries — every project grows your portfolio.</p></div>
+      </div>
+      <div class="ch-perk">
+        <div class="ch-perk-ico" style="background:#EDE9FE;color:#7C3AED;">🤝</div>
+        <div><h4>Collaborative Culture</h4><p>Work alongside experienced analysts who share knowledge openly and solve hard problems together.</p></div>
+      </div>
+      <div class="ch-perk">
+        <div class="ch-perk-ico" style="background:#FFF7ED;color:var(--orange);">🏆</div>
+        <div><h4>Performance Bonuses</h4><p>We reward great work. Top performers receive bonuses and first preference for high-value projects.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat reveal"><div class="stat-n">8+</div><div class="stat-l">Team Members</div></div>
+    <div class="stat reveal"><div class="stat-n">50+</div><div class="stat-l">Clients Worldwide</div></div>
+    <div class="stat reveal"><div class="stat-n">5★</div><div class="stat-l">Average Rating</div></div>
+    <div class="stat reveal"><div class="stat-n">2y+</div><div class="stat-l">In the Industry</div></div>
+  </div>
+</div>
+
+<!-- OPEN ROLES -->
+<section id="roles" style="background:var(--light);">
+  <div class="ctr">
+    <div class="roles-header reveal">
+      <div>
+        <div class="slbl">Open Positions</div>
+        <h2 class="stitle">Find Your <span>Role</span></h2>
+        <p class="sdesc">We're looking for smart, driven analysts and engineers ready to solve real business problems with data.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="fb active" onclick="filterRoles('all',this)">All (6)</button>
+        <button class="fb" onclick="filterRoles('analytics',this)">Analytics</button>
+        <button class="fb" onclick="filterRoles('engineering',this)">Engineering</button>
+        <button class="fb" onclick="filterRoles('design',this)">Visualization</button>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="dept-group" data-dept="analytics" id="dg-analytics">
+      <div class="dept-head"><h3>Analytics</h3><span class="dept-count">3 roles</span></div>
+
+      <div class="role-card reveal" id="rc1" onclick="toggleRole('rc1','rd1')">
+        <div class="role-info"><h4>Data Analyst</h4>
+          <div class="role-tags"><span class="rtag dept">Analytics</span><span class="rtag type">Full-time</span><span class="rtag loc">Remote</span><span class="rtag hot">🔥 Hiring Now</span></div>
+        </div>
+        <div class="role-right"><a href="#" class="role-apply" onclick="openModal(event,'Data Analyst')">Apply →</a><button class="expand-btn" id="eb1">+</button></div>
+      </div>
+      <div class="role-detail" id="rd1"><div class="rd-grid">
+        <div>
+          <div class="rd-sec"><h5>What You'll Do</h5><ul>
+            <li>Clean, analyse, and visualize data to deliver actionable business insights</li>
+            <li>Build EDA reports uncovering trends, patterns, and opportunities</li>
+            <li>Create charts, dashboards, and storytelling visuals for clients</li>
+            <li>Translate complex data findings into plain-English recommendations</li>
+          </ul></div>
+          <div class="rd-sec"><h5>What We're Looking For</h5><ul>
+            <li>Proficiency in Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
+            <li>Strong SQL skills for data extraction and querying</li>
+            <li>Experience with Excel and Power BI dashboards</li>
+            <li>Strong communication skills to present findings clearly</li>
+          </ul></div>
+        </div>
+        <div class="rd-meta">
+          <div class="rd-meta-item"><label>Type</label><span>Full-time</span></div>
+          <div class="rd-meta-item"><label>Location</label><span>Remote (India)</span></div>
+          <div class="rd-meta-item"><label>Experience</label><span>1–4 Years</span></div>
+          <div class="rd-meta-item"><label>Skills</label><span>Python · SQL · Power BI</span></div>
+          <button class="rd-apply-btn" onclick="openModal(event,'Data Analyst')">Apply for This Role →</button>
+        </div>
+      </div></div>
+
+      <div class="role-card reveal" id="rc2" onclick="toggleRole('rc2','rd2')">
+        <div class="role-info"><h4>ML Data Prep Specialist</h4>
+          <div class="role-tags"><span class="rtag dept">Analytics</span><span class="rtag type">Full-time</span><span class="rtag loc">Remote</span><span class="rtag hot">🔥 Hiring Now</span></div>
+        </div>
+        <div class="role-right"><a href="#" class="role-apply" onclick="openModal(event,'ML Data Prep Specialist')">Apply →</a><button class="expand-btn" id="eb2">+</button></div>
+      </div>
+      <div class="role-detail" id="rd2"><div class="rd-grid">
+        <div>
+          <div class="rd-sec"><h5>What You'll Do</h5><ul>
+            <li>Prepare raw data for machine learning models end-to-end</li>
+            <li>Handle missing values, outliers, duplicates, and type issues</li>
+            <li>Perform feature engineering and encoding (label + one-hot)</li>
+            <li>Build stratified train/test splits and sklearn pipelines</li>
+          </ul></div>
+          <div class="rd-sec"><h5>What We're Looking For</h5><ul>
+            <li>Strong Python skills with Sklearn, Pandas, and NumPy</li>
+            <li>Understanding of ML preprocessing best practices</li>
+            <li>Experience with feature engineering and EDA</li>
+            <li>Attention to detail — every data point matters</li>
+          </ul></div>
+        </div>
+        <div class="rd-meta">
+          <div class="rd-meta-item"><label>Type</label><span>Full-time</span></div>
+          <div class="rd-meta-item"><label>Location</label><span>Remote (India)</span></div>
+          <div class="rd-meta-item"><label>Experience</label><span>1–3 Years</span></div>
+          <div class="rd-meta-item"><label>Skills</label><span>Sklearn · Python · NumPy</span></div>
+          <button class="rd-apply-btn" onclick="openModal(event,'ML Data Prep Specialist')">Apply for This Role →</button>
+        </div>
+      </div></div>
+
+      <div class="role-card reveal" id="rc3" onclick="toggleRole('rc3','rd3')">
+        <div class="role-info"><h4>Power BI Developer</h4>
+          <div class="role-tags"><span class="rtag dept">Analytics</span><span class="rtag type">Part-time</span><span class="rtag loc">Remote</span></div>
+        </div>
+        <div class="role-right"><a href="#" class="role-apply" onclick="openModal(event,'Power BI Developer')">Apply →</a><button class="expand-btn" id="eb3">+</button></div>
+      </div>
+      <div class="role-detail" id="rd3"><div class="rd-grid">
+        <div>
+          <div class="rd-sec"><h5>What You'll Do</h5><ul>
+            <li>Design interactive Power BI dashboards for clients across industries</li>
+            <li>Build sales, marketing, finance, and HR KPI dashboards</li>
+            <li>Write DAX measures and optimise data models for performance</li>
+            <li>Translate client requirements into clear, visual data stories</li>
+          </ul></div>
+          <div class="rd-sec"><h5>What We're Looking For</h5><ul>
+            <li>Strong Power BI skills with a real project portfolio</li>
+            <li>DAX proficiency and experience with data modelling</li>
+            <li>SQL knowledge for data transformation</li>
+            <li>Eye for design — dashboards should be clear and beautiful</li>
+          </ul></div>
+        </div>
+        <div class="rd-meta">
+          <div class="rd-meta-item"><label>Type</label><span>Part-time / Project</span></div>
+          <div class="rd-meta-item"><label>Location</label><span>Remote</span></div>
+          <div class="rd-meta-item"><label>Experience</label><span>1–4 Years</span></div>
+          <div class="rd-meta-item"><label>Skills</label><span>Power BI · DAX · SQL</span></div>
+          <button class="rd-apply-btn" onclick="openModal(event,'Power BI Developer')">Apply for This Role →</button>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- ENGINEERING -->
+    <div class="dept-group" data-dept="engineering" id="dg-engineering">
+      <div class="dept-head"><h3>Engineering</h3><span class="dept-count">2 roles</span></div>
+
+      <div class="role-card reveal" id="rc4" onclick="toggleRole('rc4','rd4')">
+        <div class="role-info"><h4>SQL Data Engineer</h4>
+          <div class="role-tags"><span class="rtag dept">Engineering</span><span class="rtag type">Full-time</span><span class="rtag loc">Remote</span></div>
+        </div>
+        <div class="role-right"><a href="#" class="role-apply" onclick="openModal(event,'SQL Data Engineer')">Apply →</a><button class="expand-btn" id="eb4">+</button></div>
+      </div>
+      <div class="role-detail" id="rd4"><div class="rd-grid">
+        <div>
+          <div class="rd-sec"><h5>What You'll Do</h5><ul>
+            <li>Write optimized SQL queries for data extraction and reporting</li>
+            <li>Build ETL pipelines transforming raw records into analytics-ready datasets</li>
+            <li>Create database reporting structures for client dashboards</li>
+            <li>Ensure data quality and integrity across all pipelines</li>
+          </ul></div>
+          <div class="rd-sec"><h5>What We're Looking For</h5><ul>
+            <li>Strong SQL skills across PostgreSQL, MySQL, or SQLite</li>
+            <li>Experience with ETL processes and data transformation</li>
+            <li>Understanding of database design and normalization</li>
+            <li>Python familiarity for automation is a plus</li>
+          </ul></div>
+        </div>
+        <div class="rd-meta">
+          <div class="rd-meta-item"><label>Type</label><span>Full-time</span></div>
+          <div class="rd-meta-item"><label>Location</label><span>Remote</span></div>
+          <div class="rd-meta-item"><label>Experience</label><span>1–4 Years</span></div>
+          <div class="rd-meta-item"><label>Skills</label><span>SQL · PostgreSQL · ETL</span></div>
+          <button class="rd-apply-btn" onclick="openModal(event,'SQL Data Engineer')">Apply for This Role →</button>
+        </div>
+      </div></div>
+
+      <div class="role-card reveal" id="rc5" onclick="toggleRole('rc5','rd5')">
+        <div class="role-info"><h4>Excel &amp; Automation Specialist</h4>
+          <div class="role-tags"><span class="rtag dept">Engineering</span><span class="rtag type">Freelance</span><span class="rtag loc">Remote</span></div>
+        </div>
+        <div class="role-right"><a href="#" class="role-apply" onclick="openModal(event,'Excel & Automation Specialist')">Apply →</a><button class="expand-btn" id="eb5">+</button></div>
+      </div>
+      <div class="role-detail" id="rd5"><div class="rd-grid">
+        <div>
+          <div class="rd-sec"><h5>What You'll Do</h5><ul>
+            <li>Build automated Excel reports, Power Query pipelines, and VBA tools</li>
+            <li>Create dynamic templates saving clients hours every week</li>
+            <li>Design pivot tables, advanced formulas, and data validation systems</li>
+            <li>Document and hand over automation tools with clear instructions</li>
+          </ul></div>
+          <div class="rd-sec"><h5>What We're Looking For</h5><ul>
+            <li>Expert-level Excel — formulas, pivot tables, Power Query</li>
+            <li>VBA experience for automation and custom tooling</li>
+            <li>Ability to understand workflows and simplify them</li>
+            <li>Strong attention to detail and clean, organized output</li>
+          </ul></div>
+        </div>
+        <div class="rd-meta">
+          <div class="rd-meta-item"><label>Type</label><span>Freelance / Project</span></div>
+          <div class="rd-meta-item"><label>Location</label><span>Remote</span></div>
+          <div class="rd-meta-item"><label>Experience</label><span>1–5 Years</span></div>
+          <div class="rd-meta-item"><label>Skills</label><span>Excel · VBA · Power Query</span></div>
+          <button class="rd-apply-btn" onclick="openModal(event,'Excel & Automation Specialist')">Apply for This Role →</button>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- VISUALIZATION -->
+    <div class="dept-group" data-dept="design" id="dg-design">
+      <div class="dept-head"><h3>Visualization</h3><span class="dept-count">1 role</span></div>
+      <div class="role-card reveal" id="rc6" onclick="toggleRole('rc6','rd6')">
+        <div class="role-info"><h4>Data Visualization Designer</h4>
+          <div class="role-tags"><span class="rtag dept">Visualization</span><span class="rtag type">Freelance</span><span class="rtag loc">Remote</span></div>
+        </div>
+        <div class="role-right"><a href="#" class="role-apply" onclick="openModal(event,'Data Visualization Designer')">Apply →</a><button class="expand-btn" id="eb6">+</button></div>
+      </div>
+      <div class="role-detail" id="rd6"><div class="rd-grid">
+        <div>
+          <div class="rd-sec"><h5>What You'll Do</h5><ul>
+            <li>Craft presentation-ready charts, infographics, and reports</li>
+            <li>Tell compelling data stories for client presentations</li>
+            <li>Create visuals using Matplotlib, Seaborn, and Tableau</li>
+            <li>Collaborate with analysts to translate findings into clear visuals</li>
+          </ul></div>
+          <div class="rd-sec"><h5>What We're Looking For</h5><ul>
+            <li>Strong portfolio of data visualization work</li>
+            <li>Proficiency in Matplotlib, Seaborn, or Tableau</li>
+            <li>Eye for design — colours, layout, storytelling matter</li>
+            <li>Understanding of what makes data actionable for business audiences</li>
+          </ul></div>
+        </div>
+        <div class="rd-meta">
+          <div class="rd-meta-item"><label>Type</label><span>Freelance / Project</span></div>
+          <div class="rd-meta-item"><label>Location</label><span>Remote</span></div>
+          <div class="rd-meta-item"><label>Experience</label><span>1–4 Years</span></div>
+          <div class="rd-meta-item"><label>Skills</label><span>Matplotlib · Seaborn · Tableau</span></div>
+          <button class="rd-apply-btn" onclick="openModal(event,'Data Visualization Designer')">Apply for This Role →</button>
+        </div>
+      </div></div>
+    </div>
+
+    <div id="no-roles"><div style="font-size:44px;margin-bottom:14px;">🔍</div>
+      <h3 style="font-size:18px;color:var(--dark);margin-bottom:8px;">No roles in this category right now</h3>
+      <p style="color:var(--muted);margin-bottom:20px;">Send a general application — we'll reach out when something opens.</p>
+      <a href="#" onclick="openModal(event,'General Application')" class="btn-pri" style="display:inline-flex;">Send General Application</a>
+    </div>
+  </div>
+</section>
+
+<!-- PERKS -->
+<section id="perks" style="background:#fff;">
+  <div class="ctr">
+    <div class="perks-box">
+      <div class="reveal"><div class="slbl">Why Join Us</div><h2 class="stitle">Life at <span>AlphaAnalytics</span></h2></div>
+      <div class="perks-grid">
+        <div class="perk reveal"><div class="perk-ico">🌍</div><h4>Fully Remote</h4><p>Work from anywhere. We're a remote-first team with flexible hours that respect your time and lifestyle.</p></div>
+        <div class="perk reveal"><div class="perk-ico">📚</div><h4>Skill Growth</h4><p>Access real-world analytics challenges across diverse industries. Every project grows your portfolio.</p></div>
+        <div class="perk reveal"><div class="perk-ico">🤝</div><h4>Collaborative Culture</h4><p>Work alongside experienced analysts who share knowledge openly. We solve hard problems together.</p></div>
+        <div class="perk reveal"><div class="perk-ico">🏆</div><h4>Performance Bonuses</h4><p>We reward great work. Top performers receive bonuses and first pick of high-value projects.</p></div>
+        <div class="perk reveal"><div class="perk-ico">🔧</div><h4>Cutting-Edge Stack</h4><p>Python, Sklearn, Power BI, SQL and more. Stay sharp on the tools that matter in industry.</p></div>
+        <div class="perk reveal"><div class="perk-ico">💥</div><h4>Real Impact</h4><p>Your work directly improves how businesses operate. See the tangible results of your analysis.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE HIRE -->
+<section id="how" style="background:var(--light);">
+  <div class="ctr">
+    <div class="sh-ctr reveal"><div class="slbl">Hiring Process</div><h2 class="stitle">Simple, <span>Transparent</span> Process</h2>
+      <p class="sdesc">No gimmicks. Our hiring process is straightforward and fast — typically done in 1–2 weeks.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal"><div class="how-num">01</div><h4>Apply Online</h4><p>Submit your application with your CV and a short note about why you want to join.</p></div>
+      <div class="how-step reveal"><div class="how-num">02</div><h4>Skills Review</h4><p>A short take-home task relevant to the role — typically 2–3 hours of practical work.</p></div>
+      <div class="how-step reveal"><div class="how-num">03</div><h4>Interview</h4><p>A 30–45 min conversation about your background and how you approach data problems.</p></div>
+      <div class="how-step reveal"><div class="how-num">04</div><h4>Offer &amp; Onboard</h4><p>Fast decisions — within 2–5 days. Onboarding takes under a week and you hit the ground running.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values" style="background:#fff;">
+  <div class="ctr">
+    <div class="sh-ctr reveal"><div class="slbl">Our Values</div><h2 class="stitle">What We <span>Believe In</span></h2>
+      <p class="sdesc">These aren't posters on a wall — they shape how we work every day.</p>
+    </div>
+    <div class="values-grid">
+      <div class="val-card reveal"><div class="val-ico">✅</div><div><h5>Accuracy Above All</h5><p>We don't guess. Every number, chart, and insight must be defensible. Clients make real decisions from our work.</p></div></div>
+      <div class="val-card reveal"><div class="val-ico">⚡</div><div><h5>Speed with Quality</h5><p>Fast doesn't mean sloppy. We deliver polished, high-quality work in days, not weeks.</p></div></div>
+      <div class="val-card reveal"><div class="val-ico">👁️</div><div><h5>Radical Transparency</h5><p>We tell clients — and each other — what we actually think. Clear, honest communication is non-negotiable.</p></div></div>
+      <div class="val-card reveal"><div class="val-ico">🛡️</div><div><h5>Continuous Learning</h5><p>The data world moves fast. We actively invest in new tools, techniques, and domain knowledge.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM VOICES -->
+<section id="voices" style="background:var(--light);">
+  <div class="ctr">
+    <div class="sh-ctr reveal"><div class="slbl">Team Voices</div><h2 class="stitle">What Our Team <span>Says</span></h2>
+      <p class="sdesc">Straight from our analysts — no PR polish, just genuine perspectives on working at AlphaAnalytics.</p>
+    </div>
+    <div class="voices-grid">
+      <div class="voice-card reveal"><div class="voice-stars">★★★★★</div>
+        <p>"The problems are genuinely challenging across different industries and the team is always willing to help each other grow. Best decision I made joining AlphaAnalytics."</p>
+        <div class="voice-auth"><div class="voice-av" style="background:linear-gradient(135deg,#F97316,#EA580C);">PK</div><div><h5>Priya Kumar</h5><span>Data Analyst, 1.5 years</span></div></div>
+      </div>
+      <div class="voice-card reveal"><div class="voice-stars">★★★★★</div>
+        <p>"The remote setup is real — no micromanagement, clear deliverables, and actually flexible hours. I learn something new with every client dataset I work on."</p>
+        <div class="voice-auth"><div class="voice-av" style="background:linear-gradient(135deg,#10B981,#0891B2);">RV</div><div><h5>Rohan Verma</h5><span>ML Data Prep Specialist, 1 year</span></div></div>
+      </div>
+      <div class="voice-card reveal"><div class="voice-stars">★★★★★</div>
+        <p>"Building dashboards that clients actually love using is incredibly satisfying. The team gives real ownership of your work and celebrates wins together."</p>
+        <div class="voice-auth"><div class="voice-av" style="background:linear-gradient(135deg,#7C3AED,#DB2777);">AS</div><div><h5>Aisha Singh</h5><span>Power BI Developer, 8 months</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-ban reveal">
+  <div><h3>Don't See the Right Role?</h3><p>Send us a general application — we review on a rolling basis and will reach out when something fits.</p></div>
+  <a href="#" class="btn-wh" onclick="openModal(event,'General Application')">Send General Application →</a>
+</div>
+
+<!-- APPLY FORM -->
+<section id="apply" style="background:#fff;">
+  <div class="apply-wrap reveal">
+    <div>
+      <div class="apply-left-tag">Apply Now</div>
+      <h3 class="apply-left h3" style="font-size:28px;font-weight:800;color:var(--dark);margin-bottom:12px;">Ready to Join?<br/>Let's Talk.</h3>
+      <p class="apply-left p" style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px;">Fill out the form and we'll review your application within 2–5 business days.</p>
+      <div class="apply-email-box"><div class="apply-email-ico">✉️</div><a href="mailto:alphaanalyticssolutions@gmail.com">alphaanalyticssolutions@gmail.com</a></div>
+      <div class="apply-open"><span class="apply-open-dot"></span><p>Applications open — reviewing on a <strong>rolling basis</strong></p></div>
+    </div>
+    <div>
+      <div class="f2">
+        <div class="fg"><label>Full Name</label><input type="text" id="c-name" placeholder="Full name" required/></div>
+        <div class="fg"><label>Email</label><input type="email" id="c-email" placeholder="Email address" required/></div>
+      </div>
+      <div class="f2">
+        <div class="fg"><label>Phone (optional)</label><input type="tel" id="c-phone" placeholder="+91 98765 43210"/></div>
+        <div class="fg"><label>City, Country</label><input type="text" id="c-location" placeholder="Mumbai, India"/></div>
+      </div>
+      <div class="fg"><label>Role Applying For</label>
+        <select id="c-role" required>
+          <option value="" disabled selected>Select a role</option>
+          <option>Data Analyst</option><option>ML Data Preparation Specialist</option>
+          <option>Power BI Developer</option><option>SQL Data Engineer</option>
+          <option>Excel &amp; Automation Specialist</option><option>Data Visualization Designer</option>
+          <option>General / Open Application</option>
+        </select>
+      </div>
+      <div class="fg"><label>Years of Experience</label>
+        <select id="c-exp">
+          <option value="" disabled selected>Select level</option>
+          <option>Student / Entry (0–1 years)</option><option>Junior (1–2 years)</option>
+          <option>Mid-level (2–4 years)</option><option>Senior (4+ years)</option>
+        </select>
+      </div>
+      <div class="f2">
+        <div class="fg"><label>LinkedIn (optional)</label><input type="url" id="c-linkedin" placeholder="linkedin.com/in/yourname"/></div>
+        <div class="fg"><label>GitHub / Portfolio (optional)</label><input type="url" id="c-github" placeholder="github.com/yourname"/></div>
+      </div>
+      <div class="fg"><label>Why AlphaAnalytics?</label><textarea id="c-why" placeholder="Why do you want to join? What excites you about data analytics?" required></textarea></div>
+      <div class="fg"><label>Upload CV / Resume</label>
+        <div class="file-zone" onclick="document.getElementById('cvFile').click()">
+          <p>📎 <span>Click to upload your CV</span> or drag here</p>
+          <p style="margin-top:4px;font-size:12px;color:var(--muted);">PDF, DOC, DOCX · Max 5MB</p>
+          <input type="file" id="cvFile" accept=".pdf,.doc,.docx" style="display:none;" onchange="document.getElementById('fchosen').style.display='block';document.getElementById('fchosen').textContent='✓ '+this.files[0].name;"/>
+          <div id="fchosen" style="display:none;font-size:12px;color:var(--orange);margin-top:6px;font-weight:600;"></div>
+        </div>
+      </div>
+      <button class="submit-btn" id="careerBtn" onclick="submitCareer(event)">Submit Application →</button>
+      <div id="apply-msg" style="display:none;padding:13px;border-radius:10px;font-size:14px;font-weight:600;text-align:center;margin-top:12px;"></div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand-logo">
+        <div class="ft-brand-text">
+          <span class="ft-logo-name">Alpha<span>Analytics</span></span>
+          <span class="ft-logo-tag">Data Driven Solutions</span>
+        </div>
+      </div>
+      <p class="ft-brand-desc">Freelance data analytics team helping businesses improve decisions with reliable, fast data workflows — from cleaning to dashboards and ML pipelines.</p>
+      <div class="ft-contact-items">
+        <div class="ft-ci"><div class="ft-ci-icon">✉️</div><a href="mailto:alphaanalyticssolutions@gmail.com">alphaanalyticssolutions@gmail.com</a></div>
+        <div class="ft-ci"><div class="ft-ci-icon">📍</div><span>Based in India — Serving clients worldwide</span></div>
+      </div>
+    </div>
+    <div class="ft-col"><h5>Services</h5><ul>
+      <li><a href="index.html#services">Data Cleaning</a></li>
+      <li><a href="index.html#services">EDA Reports</a></li>
+      <li><a href="index.html#services">Power BI Dashboards</a></li>
+      <li><a href="index.html#services">SQL Data Work</a></li>
+      <li><a href="index.html#services">Excel Automation</a></li>
+      <li><a href="index.html#services">ML Data Prep</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Company</h5><ul>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#case-studies">Case Studies</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+      <li><a href="career.html">Careers</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="freelancing.html">Freelancing</a></li>
+      <li><a href="index.html#industries">Industries</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Resources</h5><ul>
+      <li><a href="index.html#contact">Get a Quote</a></li>
+      <li><a href="mailto:alphaanalyticssolutions@gmail.com">Email Us</a></li>
+      <li><a href="packages.html">Packages &amp; Pricing</a></li>
+      <li><a href="index.html#insights">Insights &amp; Blog</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <div class="ft-follow"><h5>Follow Us</h5>
+      <div class="ft-soc">
+        <a href="#" class="fsl" title="LinkedIn">in</a>
+        <a href="mailto:alphaanalyticssolutions@gmail.com" class="fsl" title="Email">✉</a>
+        <a href="https://www.instagram.com/alphaanalyticsteam/" class="fsl" target="_blank" rel="noopener" title="Instagram">ig</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2025 AlphaAnalytics. All rights reserved.</p>
+    <div class="ft-bot-links">
+      <a href="#">Privacy Policy</a>
+      <a href="mailto:alphaanalyticssolutions@gmail.com">Contact</a>
+      <a href="career.html">Careers</a>
+    </div>
+  </div>
+</footer>
+
+<!-- APPLICATION MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Apply Now</h3>
+    <div class="modal-role" id="modalRole">Role</div>
+    <div class="f2">
+      <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"/></div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+    </div>
+    <div class="fg"><label>Role</label><input type="text" id="modalRoleInput" readonly style="background:var(--orange-bg);color:var(--orange);font-weight:600;border-color:var(--orange-light);"/></div>
+    <div class="fg"><label>LinkedIn / Portfolio</label><input type="url" placeholder="linkedin.com/in/yourname"/></div>
+    <div class="fg"><label>Why AlphaAnalytics?</label><textarea placeholder="Tell us why you want to join…" style="min-height:80px;"></textarea></div>
+    <button class="submit-btn" id="modalBtn" onclick="submitModal()">Submit Application →</button>
+  </div>
+</div>
+
+<script>
+
+function openMob(){document.getElementById('mobNav').classList.add('open');}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');}
+const _rev=document.querySelectorAll('.reveal');
+const _obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');_obs.unobserve(x.target);}});},{threshold:.1});
+_rev.forEach(el=>_obs.observe(el));
+
+function filterRoles(dept,btn){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  let any=false;
+  document.querySelectorAll('.dept-group').forEach(g=>{if(dept==='all'||g.dataset.dept===dept){g.style.display='block';any=true;}else g.style.display='none';});
+  document.getElementById('no-roles').style.display=any?'none':'block';
+}
+function toggleRole(cid,did){
+  const card=document.getElementById(cid),detail=document.getElementById(did),n=cid.replace('rc','');
+  const eb=document.getElementById('eb'+n),isOpen=detail.classList.contains('open');
+  document.querySelectorAll('.role-detail').forEach(d=>d.classList.remove('open'));
+  document.querySelectorAll('.role-card').forEach(c=>c.classList.remove('expanded'));
+  document.querySelectorAll('.expand-btn').forEach(b=>{b.textContent='+';b.classList.remove('open');});
+  if(!isOpen){detail.classList.add('open');card.classList.add('expanded');eb.textContent='−';eb.classList.add('open');setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),80);}
+}
+function openModal(e,role){e.stopPropagation();e.preventDefault();document.getElementById('modalRole').textContent='For: '+role;document.getElementById('modalRoleInput').value=role;document.getElementById('modalOverlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow='';}
+function submitModal(){const btn=document.getElementById('modalBtn');btn.textContent='✓ Submitted!';btn.style.background='#10B981';setTimeout(()=>closeModal(),2000);}
+function submitCareer(e){
+  const btn=document.getElementById('careerBtn'),msg=document.getElementById('apply-msg');
+  const name=document.getElementById('c-name').value.trim(),email=document.getElementById('c-email').value.trim();
+  const role=document.getElementById('c-role').value,why=document.getElementById('c-why').value.trim();
+  if(!name||!email||!role||!why){msg.style.cssText='display:block;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);color:#EF4444;';msg.textContent='Please fill in your name, email, role, and why you want to join.';return;}
+  btn.textContent='Sending…';btn.disabled=true;msg.style.display='none';
+  setTimeout(()=>{msg.style.cssText='display:block;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);color:#10B981;';msg.textContent='✓ Application received! We\'ll reply within 2–5 business days.';btn.textContent='Sent ✓';btn.style.background='#10B981';},1200);
+}
+</script>
+</body>
+</html>
